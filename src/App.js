@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import firebase from "./firebase";
 import HomePage from "./HomePage";
 import CreatePoll from "./CreatePoll";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
+<<<<<<< HEAD
   constructor() {
     super();
     this.state = {
@@ -30,14 +30,12 @@ class App extends Component {
     });
   }
 
+=======
+>>>>>>> 6f622bb96ca606d34eb5f49d651c2d0c120cfe5b
   render() {
     return (
       <Router>
         <div>
-          {this.state.testArray.map((item) => {
-            return <p key={item.key}> {item.data} </p>;
-          })}
-          <input type="text" />
           <Route exact path="/" component={HomePage} />
           <Route path="/createpoll" component={CreatePoll} />
         </div>
