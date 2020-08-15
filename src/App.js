@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
+import HomePage from "./HomePage";
+import CreatePoll from "./CreatePoll";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -28,12 +31,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.testArray.map((item) => {
-          return <p key={item.key}>{item.data}</p>;
-        })}
-        <input type="text" />
-      </div>
+      <Router>
+        <div>
+          {this.state.testArray.map((item) => {
+            return <p key={item.key}> {item.data} </p>;
+          })}
+          <input type="text" />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/createpoll" component={CreatePoll} />
+        </div>
+      </Router>
     );
   }
 }
