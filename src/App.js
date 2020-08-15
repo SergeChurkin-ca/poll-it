@@ -23,6 +23,7 @@ class App extends Component {
           data: data[key],
         });
       }
+
       this.setState({
         testArray: newTestArray,
       });
