@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
-// import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 class CreatePoll extends Component {
   constructor() {
     super();
     this.state = {
+      // !!!! removed array and added a key to state - will explain
+      key: "",
       polls: [],
       titleInput: "",
       questionInput: "",
@@ -32,6 +34,30 @@ class CreatePoll extends Component {
     });
   }
 
+  // !!! to be removed after group code walk through
+  // componentDidMount() {
+  //   const dbRef = firebase.database().ref();
+  //   dbRef.on("value", (snapshot) => {
+  //     const data = snapshot.val();
+  //     const pollsArray = [];
+  //     for (let key in data) {
+  //       pollsArray.push({
+  //         key: key,
+  //         data: data[key],
+  //       });
+  //     }
+  //     this.setState({
+  //       polls: pollsArray,
+  //     });
+  //   });
+
+  //   dbRef.on("child_added", function (snapshot, prevChildKey) {
+  //     const newPost = snapshot.val();
+  //     console.log(prevChildKey);
+  //   });
+  // }
+
+  // Component methods
   handleTitle = (event) => {
     this.setState({
       titleInput: event.target.value,
@@ -52,6 +78,7 @@ class CreatePoll extends Component {
       optionTwoInput: event.target.value,
     });
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -68,6 +95,14 @@ class CreatePoll extends Component {
         optionOneInput: this.state.optionOneInput,
         optionTwoInput: this.state.optionTwoInput,
       };
+
+      // !!!!
+      const pollObj = dbRef.push(pollObject);
+      // !! Destructure this and re-name key state
+
+      // reset error handle and clear input text
+      this.setState({
+        key: pollObj.key,
       dbRef.push(pollObject);
 
       // reset error handle and clear input text
@@ -87,6 +122,7 @@ class CreatePoll extends Component {
   };
 
   render() {
+    const userKey = this.state.key;
     return (
       <main>
         <section>
@@ -123,6 +159,9 @@ class CreatePoll extends Component {
             <button type="submit">Create Poll</button>
           </form>
           <p>{this.state.errorMessage}</p>
+          <Link to={`/polllinks/${userKey}`}>
+            Click me to see the poll analytics
+          </Link>
         </section>
       </main>
     );
