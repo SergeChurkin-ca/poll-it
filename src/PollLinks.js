@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
+import UserGeneratedPolls from "./UserGeneratedPolls";
 
 class PollLinks extends Component {
   constructor() {
@@ -28,6 +29,7 @@ class PollLinks extends Component {
         <p>The question is: {this.state.poll.questionInput}</p>
         <p>The first option is: {this.state.poll.optionOneInput}</p>
         <p>The second option is: {this.state.poll.optionTwoInput}</p>
+        <UserGeneratedPolls />
       </div>
     );
   }
