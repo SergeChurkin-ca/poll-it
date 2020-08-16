@@ -10,7 +10,6 @@ class CreatePoll extends Component {
           <Link to="/createpoll">
             <p> Create poll </p>
           </Link>
-          <UserGeneratedPolls />
         </section>
       </main>
     );
