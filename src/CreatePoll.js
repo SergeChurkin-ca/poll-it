@@ -103,7 +103,7 @@ class CreatePoll extends Component {
       // reset error handle and clear input text
       this.setState({
         key: pollObj.key,
-      dbRef.push(pollObject);
+      });
 
       // reset error handle and clear input text
       this.setState({
