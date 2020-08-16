@@ -7,7 +7,7 @@ class CreatePoll extends Component {
       <main>
         <section>
           <Link to="/createpoll">
-            <button type="">Create poll</button>
+            <p> Create poll </p>
           </Link>
         </section>
       </main>

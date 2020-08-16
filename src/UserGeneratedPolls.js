@@ -13,40 +13,46 @@ class UserGeneratedPolls extends Component {
 
   // **************************
   componentDidMount() {
-    const dbRef = firebase.database().ref();
-
-    dbRef.on("value", (snapshot) => {
-      // checking changes in db
-
-      const data = snapshot.val();
-      const newToursAarray = [];
-
-      for (let inventoryName in data) {
-        const toursObject = {
-          id: inventoryName,
-          optionOne: data[inventoryName].optionOneInput,
-          optionTwo: data[inventoryName].optionTwoInput,
-          questionInput: data[inventoryName].questionInput,
-          titleInput: data[inventoryName].titleInput,
-        };
-        newToursAarray.push(toursObject);
-      }
-
-      this.setState({
-        polls: newToursAarray,
+    const dbRef = firebase
+      .database()
+      .ref("-MEsKjFCz4ZO6AFzXA7O")
+      .on("value", (snapshot) => {
+        console.log(snapshot.val());
       });
-    });
   }
+
+  // dbRef.on("value", (snapshot) => {
+  //   // checking changes in db
+
+  //   const data = snapshot.val();
+  //   const newToursAarray = [];
+
+  //   for (let inventoryName in data) {
+  //     const toursObject = {
+  //       id: inventoryName,
+  //       optionOne: data[inventoryName].optionOneInput,
+  //       optionTwo: data[inventoryName].optionTwoInput,
+  //       questionInput: data[inventoryName].questionInput,
+  //       titleInput: data[inventoryName].titleInput,
+  //     };
+  //     newToursAarray.push(toursObject);
+  //   }
+
+  //   this.setState({
+  //     polls: newToursAarray,
+  //   });
+  // });
+  // }
 
   render() {
     return (
       <div className="tourlist">
-        <h1>User Generated Polls</h1>
+        <h1> User Generated Polls </h1>
         {this.state.polls.map((pollsObject) => {
           return (
             <ul className="inventoryItem" key={pollsObject.id}>
-              <h2>{pollsObject.titleInput}</h2>
-              <h3>Please chose on option {pollsObject.questionInput}: </h3>
+              <h2> {pollsObject.titleInput} </h2>
+              <h3> Please chose on option {pollsObject.questionInput}: </h3>
               <li>
                 <input
                   type="radio"
