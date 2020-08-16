@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 class CreatePoll extends Component {
   constructor() {
     super();
     this.state = {
-      // !!!!
+      // !!!! removed array and added a key to state - will explain
+      pollObj: {},
       key: "",
       titleInput: "",
       questionInput: "",
@@ -16,7 +17,7 @@ class CreatePoll extends Component {
     };
   }
 
-  // !!!
+  // !!! to be removed after group code walk through
   // componentDidMount() {
   //   const dbRef = firebase.database().ref();
   //   dbRef.on("value", (snapshot) => {
@@ -60,6 +61,7 @@ class CreatePoll extends Component {
       optionTwoInput: event.target.value,
     });
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -77,12 +79,13 @@ class CreatePoll extends Component {
         optionTwoInput: this.state.optionTwoInput,
       };
       // !!!!
-      const pushedPollObj = dbRef.push(pollObject);
+      const pollObj = dbRef.push(pollObject);
+      // !! Destructure this and re-name key state
 
       // reset error handle and clear input text
       this.setState({
-        // !!!!
-        key: pushedPollObj.key,
+        pollObj: pollObj,
+        key: pollObj.key,
         errorMessage: "",
         titleInput: "",
         questionInput: "",
@@ -98,7 +101,7 @@ class CreatePoll extends Component {
   };
 
   render() {
-    console.log(this.state.key);
+    const userKey = this.state.key;
     return (
       <main>
         <section>
@@ -135,9 +138,8 @@ class CreatePoll extends Component {
             <button type="submit">Create Poll</button>
           </form>
           <p>{this.state.errorMessage}</p>
-          {/* <Link to={`/polllinks/${this.state.key}`}> */}
-          <Link to="/polllinks/">
-            <button>Click me to see the poll analytics</button>
+          <Link to={`/polllinks/${userKey}`}>
+            Click me to see the poll analytics
           </Link>
         </section>
       </main>
