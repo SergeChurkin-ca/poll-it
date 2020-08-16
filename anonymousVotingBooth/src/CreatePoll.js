@@ -6,9 +6,7 @@ class CreatePoll extends Component {
   constructor() {
     super();
     this.state = {
-      // !!!! removed array and added a key to state - will explain
       key: "",
-      polls: [],
       titleInput: "",
       questionInput: "",
       optionOneInput: "",
@@ -61,13 +59,11 @@ class CreatePoll extends Component {
         optionTwoInput: this.state.optionTwoInput,
       };
 
-      // !!!!
-      const pollObj = dbRef.push(pollObject);
-      // !! Destructure this and re-name key state
-
-      // reset error handle and clear input text
+     
+      const {key} = dbRef.push(pollObject);
+    
       this.setState({
-        key: pollObj.key,
+        key,
       });
 
       // reset error handle and clear input text
