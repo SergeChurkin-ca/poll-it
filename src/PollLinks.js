@@ -22,9 +22,6 @@ class PollLinks extends Component {
   }
 
   render() {
-    
-    const pollLink = `${this.props.match.params.pollId}&${this.state.poll.titleInput}`;
-
     return (
       <div>
         <p> The User ID is: {this.props.match.params.pollId} </p>
@@ -32,7 +29,9 @@ class PollLinks extends Component {
         <p> The question is: {this.state.poll.questionInput} </p>
         <p> The first option is: {this.state.poll.optionOneInput} </p>
         <p> The second option is: {this.state.poll.optionTwoInput} </p>
-        <Link to={`/theactualpoll/${pollLink}`}>Here is your poll link</Link>
+        <Link to={`/theactualpoll/${this.props.match.params.pollId}/view`}>
+          Here is your poll link
+        </Link>
       </div>
     );
   }

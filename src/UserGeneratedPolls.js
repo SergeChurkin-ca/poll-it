@@ -45,7 +45,7 @@ class UserGeneratedPolls extends Component {
   // }
 
   render() {
-    console.log(this.props.match.params.actualId);
+    // console.log(this.props.match.params.actualId);
     return (
       <div className="tourlist">
         <h1> User Generated Polls </h1>

@@ -14,7 +14,10 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/createpoll" component={CreatePoll} />
           <Route path="/polllinks/:pollId" component={PollLinks} />
-          <Route path="/theactualpoll/:actualId" component={UserGeneratedPolls} />
+          <Route
+            path="/theactualpoll/:actualId/view"
+            component={UserGeneratedPolls}
+          />
         </div>
       </Router>
     );
