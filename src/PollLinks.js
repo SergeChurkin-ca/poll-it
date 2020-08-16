@@ -11,7 +11,7 @@ class PollLinks extends Component {
   componentDidMount() {
     firebase
       .database()
-      .ref("-MErTQrvxBAorWYrPPTY")
+      .ref(this.props.match.params.pollId)
       .on("value", (snapshot) => {
         this.setState({
           poll: snapshot.val(),
