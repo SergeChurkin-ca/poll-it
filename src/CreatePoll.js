@@ -7,14 +7,31 @@ class CreatePoll extends Component {
     super();
     this.state = {
       // !!!! removed array and added a key to state - will explain
-      pollObj: {},
       key: "",
+      polls: [],
       titleInput: "",
       questionInput: "",
       optionOneInput: "",
       optionTwoInput: "",
       errorMessage: "",
     };
+  }
+
+  componentDidMount() {
+    const dbRef = firebase.database().ref();
+    dbRef.on("value", (snapshot) => {
+      const data = snapshot.val();
+      const newTestArray = [];
+      for (let key in data) {
+        newTestArray.push({
+          key: key,
+          data: data[key],
+        });
+      }
+      this.setState({
+        testArray: newTestArray,
+      });
+    });
   }
 
   // !!! to be removed after group code walk through
@@ -78,14 +95,18 @@ class CreatePoll extends Component {
         optionOneInput: this.state.optionOneInput,
         optionTwoInput: this.state.optionTwoInput,
       };
+
       // !!!!
       const pollObj = dbRef.push(pollObject);
       // !! Destructure this and re-name key state
 
       // reset error handle and clear input text
       this.setState({
-        pollObj: pollObj,
         key: pollObj.key,
+      dbRef.push(pollObject);
+
+      // reset error handle and clear input text
+      this.setState({
         errorMessage: "",
         titleInput: "",
         questionInput: "",
