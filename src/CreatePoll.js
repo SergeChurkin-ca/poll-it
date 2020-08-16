@@ -6,9 +6,7 @@ class CreatePoll extends Component {
     constructor() {
         super();
         this.state = {
-            // !!!! removed array and added a key to state - will explain
             key: "",
-            polls: [],
             titleInput: "",
             questionInput: "",
             optionOneInput: "",
@@ -46,7 +44,6 @@ class CreatePoll extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
         const dbRef = firebase.database().ref();
         if (
             this.state.questionInput !== "" &&
@@ -60,16 +57,13 @@ class CreatePoll extends Component {
                 optionOneInput: this.state.optionOneInput,
                 optionTwoInput: this.state.optionTwoInput,
             };
-
             // !!!!
             const pollObj = dbRef.push(pollObject);
             // !! Destructure this and re-name key state
-
             // reset error handle and clear input text
             this.setState({
                 key: pollObj.key,
             });
-
             // reset error handle and clear input text
             this.setState({
                 errorMessage: "",
@@ -88,47 +82,43 @@ class CreatePoll extends Component {
 
     render() {
         const userKey = this.state.key;
-        return ( <
-            main >
-            <
-            section >
-            <
-            h2 > Create your Poll < /h2> <
-            form action = "/"
-            onSubmit = { this.handleSubmit } >
-            <
-            label htmlFor = "titleInput" > title < /label> <
-            input type = "text"
-            id = "titleInput"
-            value = { this.state.titleInput }
-            onChange = { this.handleChange }
-            /> <
-            label htmlFor = "questionInput" > question < /label> <
-            input type = "text"
-            id = "questionInput"
-            value = { this.state.questionInput }
-            onChange = { this.handleChange }
-            /> <
-            label htmlFor = "optionOne" > option one < /label> <
-            input type = "text"
-            id = "optionOneInput"
-            value = { this.state.optionOneInput }
-            onChange = { this.handleChange }
-            /> <
-            label htmlFor = "optionTwo" > option two < /label> <
-            input type = "text"
-            id = "optionTwoInput"
-            value = { this.state.optionTwoInput }
-            onChange = { this.handleChange }
-            /> <
-            button type = "submit" > Create Poll < /button> < /
-            form > <
-            p > { this.state.errorMessage } < /p> <
-            Link to = { `/polllinks/${userKey}` } >
-            Click me to see the poll analytics <
-            /Link> < /
-            section > <
-            /main>
+        return ( 
+            <main>
+                <section>
+                <h2> Create your Poll </h2> 
+                <form action = "/" onSubmit = { this.handleSubmit }>
+                    <label htmlFor = "titleInput"> title </label> 
+                    <input type = "text"
+                    id = "titleInput"
+                    value = { this.state.titleInput }
+                    onChange = { this.handleChange }
+                    /> 
+                    <label htmlFor = "questionInput"> question </label> 
+                    <input type = "text"
+                    id = "questionInput"
+                    value = { this.state.questionInput }
+                    onChange = { this.handleChange }
+                    /> 
+                    <label htmlFor = "optionOne" > option one </label> 
+                    <input type = "text"
+                    id = "optionOneInput"
+                    value = { this.state.optionOneInput }
+                    onChange = { this.handleChange }
+                    /> 
+                    <label htmlFor = "optionTwo"> option two </label> 
+                    <input type = "text"
+                    id = "optionTwoInput"
+                    value = { this.state.optionTwoInput }
+                    onChange = { this.handleChange }
+                    /> 
+                    <button type = "submit" > Create Poll </button> 
+                </form> 
+                <p> { this.state.errorMessage } </p> 
+                <Link to = { `/polllinks/${userKey}` }>
+                    Click me to see the poll analytics 
+                </Link> 
+                </section> 
+            </main>
         );
     }
 }
