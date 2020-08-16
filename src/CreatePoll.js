@@ -17,66 +17,31 @@ class CreatePoll extends Component {
     };
   }
 
-  componentDidMount() {
-    const dbRef = firebase.database().ref();
-    dbRef.on("value", (snapshot) => {
-      const data = snapshot.val();
-      const newTestArray = [];
-      for (let key in data) {
-        newTestArray.push({
-          key: key,
-          data: data[key],
+  handleChange = (e) => {
+    switch (e.target.id) {
+      case "titleInput":
+        this.setState({
+          titleInput: e.target.value,
         });
-      }
-      this.setState({
-        testArray: newTestArray,
-      });
-    });
-  }
-
-  // !!! to be removed after group code walk through
-  // componentDidMount() {
-  //   const dbRef = firebase.database().ref();
-  //   dbRef.on("value", (snapshot) => {
-  //     const data = snapshot.val();
-  //     const pollsArray = [];
-  //     for (let key in data) {
-  //       pollsArray.push({
-  //         key: key,
-  //         data: data[key],
-  //       });
-  //     }
-  //     this.setState({
-  //       polls: pollsArray,
-  //     });
-  //   });
-
-  //   dbRef.on("child_added", function (snapshot, prevChildKey) {
-  //     const newPost = snapshot.val();
-  //     console.log(prevChildKey);
-  //   });
-  // }
-
-  // Component methods
-  handleTitle = (event) => {
-    this.setState({
-      titleInput: event.target.value,
-    });
-  };
-  handleQuestion = (event) => {
-    this.setState({
-      questionInput: event.target.value,
-    });
-  };
-  handleOptionOne = (event) => {
-    this.setState({
-      optionOneInput: event.target.value,
-    });
-  };
-  handleOptionTwo = (event) => {
-    this.setState({
-      optionTwoInput: event.target.value,
-    });
+        break;
+      case "questionInput":
+        this.setState({
+          questionInput: e.target.value,
+        });
+        break;
+      case "optionOneInput":
+        this.setState({
+          optionOneInput: e.target.value,
+        });
+        break;
+      case "optionTwoInput":
+        this.setState({
+          optionTwoInput: e.target.value,
+        });
+        break;
+      default:
+        break;
+    }
   };
 
   handleSubmit = (event) => {
@@ -133,28 +98,28 @@ class CreatePoll extends Component {
               type="text"
               id="titleInput"
               value={this.state.titleInput}
-              onChange={this.handleTitle}
+              onChange={this.handleChange}
             />
             <label htmlFor="questionInput">question</label>
             <input
               type="text"
               id="questionInput"
               value={this.state.questionInput}
-              onChange={this.handleQuestion}
+              onChange={this.handleChange}
             />
             <label htmlFor="optionOne">option one</label>
             <input
               type="text"
-              id="optionOne"
+              id="optionOneInput"
               value={this.state.optionOneInput}
-              onChange={this.handleOptionOne}
+              onChange={this.handleChange}
             />
             <label htmlFor="optionTwo">option two</label>
             <input
               type="text"
-              id="optionTwo"
+              id="optionTwoInput"
               value={this.state.optionTwoInput}
-              onChange={this.handleOptionTwo}
+              onChange={this.handleChange}
             />
             <button type="submit">Create Poll</button>
           </form>
