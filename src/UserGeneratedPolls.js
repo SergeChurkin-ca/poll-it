@@ -15,7 +15,7 @@ class UserGeneratedPolls extends Component {
   componentDidMount() {
     const dbRef = firebase
       .database()
-      .ref("-MEsKjFCz4ZO6AFzXA7O")
+      .ref()
       .on("value", (snapshot) => {
         console.log(snapshot.val());
       });
@@ -45,6 +45,7 @@ class UserGeneratedPolls extends Component {
   // }
 
   render() {
+    console.log(this.props.match.params.actualId);
     return (
       <div className="tourlist">
         <h1> User Generated Polls </h1>
