@@ -1,3 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background: transparent;
+  background: white;
+  font-size: 2.5rem;
+}
+
+html {
+  font-size: 35%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Montserrat", sans-serif;
+}
+
+p,
+a,
+button,
+label,
+input {
+  color: #2d0c30;
+  font-family: "Barlow", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: #e27a05;
+  border: 3px solid #2d0c30;
+  padding: 10px 20px;
 }

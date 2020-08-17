@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
-import UserGeneratedPolls from "./UserGeneratedPolls";
 import { Link } from "react-router-dom";
 
 class PollLinks extends Component {
