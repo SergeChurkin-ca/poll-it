@@ -138,3 +138,12 @@ input:focus-within {
   border-radius: 10px;
   outline: none;
 }
+
+/* Classes For Arman */
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
