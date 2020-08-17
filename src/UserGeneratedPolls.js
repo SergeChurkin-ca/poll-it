@@ -24,9 +24,21 @@ class UserGeneratedPolls extends Component {
       });
   }
 
+
   handleChange = (e) => {
     this.setState({
       userSelection: e.target.id,
+    });
+  };
+
+ 
+  sendCount = (option) => {
+    const key = this.props.match.params.actualId;
+    const dbRef = firebase.database().ref(`${key}/${option}`);
+    dbRef.once("value", (snap) => {
+      let count = snap.val();
+      count++;
+      dbRef.set(count);
     });
   };
 
@@ -47,17 +59,6 @@ class UserGeneratedPolls extends Component {
       });
       this.sendCount("optionTwoCount");
     }
-  };
-
-  // firebase test function ----- +
-  sendCount = (option) => {
-    const key = this.props.match.params.actualId;
-    const dbRef = firebase.database().ref(`${key}/${option}`);
-    dbRef.once("value", (snap) => {
-      let count = snap.val();
-      count++;
-      dbRef.set(count);
-    });
   };
 
   render() {
