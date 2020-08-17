@@ -3,7 +3,7 @@ import HomePage from "./HomePage";
 import CreatePoll from "./CreatePoll";
 import PollLinks from "./PollLinks";
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserGeneratedPolls from "./UserGeneratedPolls";
 
 class App extends Component {

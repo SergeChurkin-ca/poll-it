@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 class CreatePoll extends Component {
   constructor() {
@@ -56,14 +56,9 @@ class CreatePoll extends Component {
         questionInput: this.state.questionInput,
         optionOneInput: this.state.optionOneInput,
         optionTwoInput: this.state.optionTwoInput,
-
-        votes: [
-          { optionOneCount: 0 },
-          { optionTwoCount: 0 },
-          { totalCount: 0 },
-        ],
+        optionOneCount: 0,
+        optionTwoCount: 0,
       };
-
       const { key } = dbRef.push(pollObject);
 
       this.setState({
