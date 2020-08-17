@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import UserGeneratedPolls from "./UserGeneratedPolls";
 
 class CreatePoll extends Component {
   render() {
     return (
-      <main>
-        <section>
-          <Link to="/createpoll">
-            <p> Create poll </p>
-          </Link>
-        </section>
-      </main>
+      <section>
+        <Link to="/createpoll">
+          <p className="button"> Create poll </p>
+        </Link>
+      </section>
     );
   }
 }

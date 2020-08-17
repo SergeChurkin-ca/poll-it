@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class CreatePoll extends Component {
   constructor() {
@@ -56,14 +56,9 @@ class CreatePoll extends Component {
         questionInput: this.state.questionInput,
         optionOneInput: this.state.optionOneInput,
         optionTwoInput: this.state.optionTwoInput,
-
-        votes: [
-          { optionOneCount: 0 },
-          { optionTwoCount: 0 },
-          { totalCount: 0 },
-        ],
+        optionOneCount: 0,
+        optionTwoCount: 0,
       };
-
       const { key } = dbRef.push(pollObject);
 
       this.setState({
@@ -87,42 +82,50 @@ class CreatePoll extends Component {
     return (
       <main>
         <section>
-          <h2> Create your Poll </h2>
-          <form action="/" onSubmit={this.handleSubmit}>
-            <label htmlFor="titleInput"> title </label>
-            <input
-              type="text"
-              id="titleInput"
-              value={this.state.titleInput}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="questionInput"> question </label>
-            <input
-              type="text"
-              id="questionInput"
-              value={this.state.questionInput}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="optionOne"> option one </label>
-            <input
-              type="text"
-              id="optionOneInput"
-              value={this.state.optionOneInput}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="optionTwo"> option two </label>
-            <input
-              type="text"
-              id="optionTwoInput"
-              value={this.state.optionTwoInput}
-              onChange={this.handleChange}
-            />
-            <button type="submit"> Create Poll </button>
-          </form>
-          <p> {this.state.errorMessage} </p>
-          <Link to={`/polllinks/${userKey}`}>
-            Click me to see the poll analytics
-          </Link>
+          <div className="createPoll">
+            <form
+              action="/"
+              onSubmit={this.handleSubmit}
+              className="createPollForm"
+            >
+              <h2> Create your Poll </h2>
+              <label htmlFor="titleInput"> title </label>
+              <input
+                type="text"
+                id="titleInput"
+                value={this.state.titleInput}
+                onChange={this.handleChange}
+              />
+              <label htmlFor="questionInput"> question </label>
+              <input
+                type="text"
+                id="questionInput"
+                value={this.state.questionInput}
+                onChange={this.handleChange}
+              />
+              <label htmlFor="optionOne"> option one </label>
+              <input
+                type="text"
+                id="optionOneInput"
+                value={this.state.optionOneInput}
+                onChange={this.handleChange}
+              />
+              <label htmlFor="optionTwo"> option two </label>
+              <input
+                type="text"
+                id="optionTwoInput"
+                value={this.state.optionTwoInput}
+                onChange={this.handleChange}
+              />
+              <button type="submit"> Create Poll </button>
+              <p className="errorMsg"> {this.state.errorMessage} </p>
+            </form>
+          </div>
+          <div className="pageContainer">
+            <Link to={`/polllinks/${userKey}`}>
+              Click me to see the poll analytics
+            </Link>
+          </div>
         </section>
       </main>
     );
