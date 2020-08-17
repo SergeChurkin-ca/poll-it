@@ -63,15 +63,11 @@ class CreatePoll extends Component {
           { totalCount: 0 },
         ],
       };
-      // !!!!
-      const pollObj = dbRef.push(pollObject);
-      // !! Destructure this and re-name key state
-      // reset error handle and clear input text
+
+      const { key } = dbRef.push(pollObject);
+
       this.setState({
-        key: pollObj.key,
-      });
-      // reset error handle and clear input text
-      this.setState({
+        key,
         errorMessage: "",
         titleInput: "",
         questionInput: "",
