@@ -1,3 +1,149 @@
+/* === GLOBAL STYLES === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-  background: transparent;
+  background: white;
+  color: #2d0c30;
+  font-size: 2rem;
+}
+
+/* Typography --- */
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+  padding: 25px 0;
+}
+
+p,
+a,
+label,
+input,
+button {
+  color: #2d0c30;
+  font-family: "Barlow", sans-serif;
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+.button {
+  background: #e27a05;
+  border: 3px solid #2d0c30;
+  border-radius: 5px;
+  box-shadow: 0 0 7px rgba(45, 12, 48, 0.3);
+  color: whitesmoke;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 2rem;
+  margin: 15px 0;
+  padding: 10px 20px;
+  transition: transform 200ms;
+}
+
+button:hover,
+button:focus,
+button:focus-within,
+.button:hover,
+.button:focus,
+.button:focus-within {
+  border: 5px solid #2d0c30;
+  outline: none;
+  transform: scale(1.03);
+}
+
+/* Layout --- */
+.pageContainer {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 90%;
+}
+
+/* === HEADER === */
+header {
+  background: #e27a05;
+  color: whitesmoke;
+}
+
+.header {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+header a {
+  color: whitesmoke;
+}
+
+/* === CREATE POLL PAGE === */
+.createPoll {
+  padding: 50px 0;
+}
+
+.createPollForm {
+  background: #f5f5f5;
+  border: 7px solid #2d0c30;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(45, 12, 48, 0.3);
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 50px;
+  width: 90%;
+}
+
+.createPollForm:focus-within {
+  box-shadow: 0 0 25px rgba(45, 12, 48, 0.3);
+}
+
+.createPollForm h2,
+.createPollForm label {
+  text-transform: capitalize;
+}
+
+.createPollForm input,
+.createPollForm label {
+  margin: auto;
+  width: 90%;
+}
+
+.createPollForm label {
+  font-family: "Montserrat", sans-serif;
+}
+
+.createPollForm input {
+  border: 3px solid #2d0c30;
+  border-radius: 10px;
+  font-size: 2.5rem;
+  margin: 15px auto;
+  padding: 10px;
+}
+
+input:focus,
+input:focus-within {
+  border: 6px solid #e27a05;
+  border-radius: 10px;
+  outline: none;
+}
+
+/* Classes For Arman */
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
