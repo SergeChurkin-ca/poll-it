@@ -10,9 +10,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-        {/* TEMPORARY HEADER UNTIL WE HAVE WEB COPY */}
         <header>
-          <div className="pageContainer header">
+          <div className="header">
             <h1>Poll it together</h1>
             <a href="#">Create a Poll</a>
           </div>
@@ -21,6 +20,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/createpoll" component={CreatePoll} />
           <Route path="/polllinks/:pollId" component={PollLinks} />
+          <div className="toCreatePoll"></div>
           <Route
             path="/theactualpoll/:actualId/view"
             component={UserGeneratedPolls}

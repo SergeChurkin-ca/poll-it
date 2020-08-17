@@ -24,22 +24,19 @@ class PollLinks extends Component {
     console.log(this.state.poll.votes);
     return (
       <div>
-        return (
-        <div>
-          <p> The User ID is: {this.props.match.params.pollId} </p>
-          <h1> The title is: {this.state.poll.titleInput} </h1>
-          <p> The question is: {this.state.poll.questionInput} </p>
-          <p> The first option is: {this.state.poll.optionOneInput} </p>
-          <p>{this.state.poll.optionOneCount}</p>
-          <p>{this.state.poll.optionTwoCount}</p>
-          <p>
-            {this.state.poll.optionOneCount + this.state.poll.optionTwoCount}
-          </p>
-          <p> The second option is: {this.state.poll.optionTwoInput} </p>
-          <Link to={`/theactualpoll/${this.props.match.params.pollId}/view`}>
-            Here is your poll link
-          </Link>
-        </div>
+        <p> The User ID is: {this.props.match.params.pollId} </p>
+        <h1> The title is: {this.state.poll.titleInput} </h1>
+        <p> The question is: {this.state.poll.questionInput} </p>
+        <p> The first option is: {this.state.poll.optionOneInput} </p>
+        <p>{this.state.poll.optionOneCount}</p>
+        <p>{this.state.poll.optionTwoCount}</p>
+        <p>{this.state.poll.optionOneCount + this.state.poll.optionTwoCount}</p>
+        <p> The second option is: {this.state.poll.optionTwoInput} </p>
+        <p>Need more votes? Share your poll with the link below!</p>
+        <Link to={`/theactualpoll/${this.props.match.params.pollId}/view`}>
+          Share your poll!
+        </Link>
+      </div>
     );
   }
 }

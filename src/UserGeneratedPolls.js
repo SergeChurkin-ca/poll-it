@@ -24,14 +24,12 @@ class UserGeneratedPolls extends Component {
       });
   }
 
-
   handleChange = (e) => {
     this.setState({
       userSelection: e.target.id,
     });
   };
 
- 
   sendCount = (option) => {
     const key = this.props.match.params.actualId;
     const dbRef = firebase.database().ref(`${key}/${option}`);
@@ -88,7 +86,7 @@ class UserGeneratedPolls extends Component {
             value={this.state.poll.optionTwo}
           ></input>
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit">Answer</button>
       </form>
     );
   }
