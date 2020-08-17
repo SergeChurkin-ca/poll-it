@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
-import UserGeneratedPolls from "./UserGeneratedPolls";
 import { Link } from "react-router-dom";
 
 class PollLinks extends Component {
@@ -22,20 +21,25 @@ class PollLinks extends Component {
   }
 
   render() {
-    // ***************************
-    // !!! THIS LINE NEED WORK FINDING OUT THE ARROR
-    // ***************************
     console.log(this.state.poll.votes);
     return (
       <div>
-        <p> The User ID is: {this.props.match.params.pollId} </p>
-        <h1> The title is: {this.state.poll.titleInput} </h1>
-        <p> The question is: {this.state.poll.questionInput} </p>
-        <p> The first option is: {this.state.poll.optionOneInput} </p>
-        {/* <p>{this.state.poll.votes[0].optionOneCount}</p>
-        <p>{this.state.poll.votes[1].optionTwoCount}</p>
-        <p>{this.state.poll.votes[2].totalCount}</p> */}
-
+        return (
+        <div>
+          <p> The User ID is: {this.props.match.params.pollId} </p>
+          <h1> The title is: {this.state.poll.titleInput} </h1>
+          <p> The question is: {this.state.poll.questionInput} </p>
+          <p> The first option is: {this.state.poll.optionOneInput} </p>
+          <p>{this.state.poll.optionOneCount}</p>
+          <p>{this.state.poll.optionTwoCount}</p>
+          <p>
+            {this.state.poll.optionOneCount + this.state.poll.optionTwoCount}
+          </p>
+          <p> The second option is: {this.state.poll.optionTwoInput} </p>
+          <Link to={`/theactualpoll/${this.props.match.params.pollId}/view`}>
+            Here is your poll link
+          </Link>
+        </div>
         <p> The second option is: {this.state.poll.optionTwoInput} </p>
         <Link to={`/theactualpoll/${this.props.match.params.pollId}/view`}>
           Here is your poll link
