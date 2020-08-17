@@ -4,11 +4,15 @@ import { Link } from "react-router-dom";
 class CreatePoll extends Component {
   render() {
     return (
-      <section>
-        <Link to="/createpoll">
-          <p className="button"> Create poll </p>
-        </Link>
-      </section>
+      <main>
+        <section>
+          <h1>poll it together</h1>
+          <p>Whether its money, the last doughnut or your pride at stake, you can always settle it with a poll!</p>
+          <Link to="/createpoll">
+            <p>Take me to the Poll Maker!</p>
+          </Link>
+        </section>
+      </main>
     );
   }
 }

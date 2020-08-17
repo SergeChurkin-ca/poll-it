@@ -36,8 +36,9 @@ class PollLinks extends Component {
             {this.state.poll.optionOneCount + this.state.poll.optionTwoCount}
           </p>
           <p> The second option is: {this.state.poll.optionTwoInput} </p>
+          <p>Need more votes? Share your poll with the link below!</p>
           <Link to={`/theactualpoll/${this.props.match.params.pollId}/view`}>
-            Here is your poll link
+            Share your poll!
           </Link>
         </div>
     );
