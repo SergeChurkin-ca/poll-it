@@ -7,7 +7,8 @@ class UserGeneratedPolls extends Component {
     this.state = {
       poll: {},
       userSelection: "",
-      votes: [{ optionOneCount: 0 }, { optionTwoCount: 0 }, { totalCount: 0 }],
+      optionOneCount: 0,
+      optionTwoCount: 0,
     };
   }
 
@@ -23,25 +24,41 @@ class UserGeneratedPolls extends Component {
       });
   }
 
+
   handleChange = (e) => {
     this.setState({
       userSelection: e.target.id,
     });
   };
 
+ 
+  sendCount = (option) => {
+    const key = this.props.match.params.actualId;
+    const dbRef = firebase.database().ref(`${key}/${option}`);
+    dbRef.once("value", (snap) => {
+      let count = snap.val();
+      count++;
+      dbRef.set(count);
+    });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
-    const copyVotes = [...this.state.votes];
-    copyVotes[2].totalCount++;
+    let option1 = this.state.optionOneCount;
+    let option2 = this.state.optionTwoCount;
     if (this.state.userSelection === "optionA") {
-      copyVotes[0].optionOneCount++;
+      option1++;
+      this.setState({
+        optionOneCount: option1,
+      });
+      this.sendCount("optionOneCount");
     } else if (this.state.userSelection === "optionB") {
-      copyVotes[1].optionTwoCount++;
+      option2++;
+      this.setState({
+        optionTwoCount: option2++,
+      });
+      this.sendCount("optionTwoCount");
     }
-    this.setState({
-      votes: copyVotes,
-    });
-    console.log(copyVotes);
   };
 
   render() {

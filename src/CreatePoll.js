@@ -59,7 +59,6 @@ class CreatePoll extends Component {
         optionOneCount: 0,
         optionTwoCount: 0,
       };
-
       const { key } = dbRef.push(pollObject);
 
       this.setState({

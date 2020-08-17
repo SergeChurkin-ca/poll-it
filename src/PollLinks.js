@@ -40,11 +40,6 @@ class PollLinks extends Component {
             Here is your poll link
           </Link>
         </div>
-        <p> The second option is: {this.state.poll.optionTwoInput} </p>
-        <Link to={`/theactualpoll/${this.props.match.params.pollId}/view`}>
-          Here is your poll link
-        </Link>
-      </div>
     );
   }
 }
