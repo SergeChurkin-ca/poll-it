@@ -85,7 +85,8 @@ class CreatePoll extends Component {
         return ( 
             <main>
                 <section>
-                <h2> Create your Poll </h2> 
+                <h2> Make a Poll! </h2> 
+                <p>Use the form below to make your poll! It's not rocket science. Or is it? Only one way to find out: Make a poll!</p>
                 <form action = "/" onSubmit = { this.handleSubmit }>
                     <label htmlFor = "titleInput"> title </label> 
                     <input type = "text"
@@ -111,12 +112,16 @@ class CreatePoll extends Component {
                     value = { this.state.optionTwoInput }
                     onChange = { this.handleChange }
                     /> 
-                    <button type = "submit" > Create Poll </button> 
+                    <button type = "submit" >I'm done!</button> 
                 </form> 
                 <p> { this.state.errorMessage } </p> 
-                <Link to = { `/polllinks/${userKey}` }>
-                    Click me to see the poll analytics 
-                </Link> 
+                <div>
+                    <h2>Wow! You just made a poll!</h2>
+                    <p>We expected this, so we made a little chart of your poll's stat's just for you! We did this because we care.</p>
+                    <Link to = { `/polllinks/${userKey}` }>
+                        Poll up the stats!
+                    </Link> 
+                </div>
                 </section> 
             </main>
         );

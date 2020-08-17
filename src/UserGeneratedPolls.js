@@ -78,7 +78,7 @@ class UserGeneratedPolls extends Component {
                     value={this.state.poll.optionTwo}
                   ></input>
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit">Answer</button>
       </form>
     );
   }
