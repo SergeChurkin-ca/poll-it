@@ -1,86 +1,83 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class CreatePoll extends Component {
-    constructor() {
-        super();
-        this.state = {
-            key: "",
-            titleInput: "",
-            questionInput: "",
-            optionOneInput: "",
-            optionTwoInput: "",
-            errorMessage: "",
-        };
+  constructor() {
+    super();
+    this.state = {
+      key: "",
+      titleInput: "",
+      questionInput: "",
+      optionOneInput: "",
+      optionTwoInput: "",
+      errorMessage: "",
+    };
+  }
+
+  handleChange = (e) => {
+    switch (e.target.id) {
+      case "titleInput":
+        this.setState({
+          titleInput: e.target.value,
+        });
+        break;
+      case "questionInput":
+        this.setState({
+          questionInput: e.target.value,
+        });
+        break;
+      case "optionOneInput":
+        this.setState({
+          optionOneInput: e.target.value,
+        });
+        break;
+      case "optionTwoInput":
+        this.setState({
+          optionTwoInput: e.target.value,
+        });
+        break;
+      default:
+        break;
     }
+  };
 
-    handleChange = (e) => {
-        switch (e.target.id) {
-            case "titleInput":
-                this.setState({
-                    titleInput: e.target.value,
-                });
-                break;
-            case "questionInput":
-                this.setState({
-                    questionInput: e.target.value,
-                });
-                break;
-            case "optionOneInput":
-                this.setState({
-                    optionOneInput: e.target.value,
-                });
-                break;
-            case "optionTwoInput":
-                this.setState({
-                    optionTwoInput: e.target.value,
-                });
-                break;
-            default:
-                break;
-        }
-    };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const dbRef = firebase.database().ref();
+    if (
+      this.state.questionInput !== "" &&
+      this.state.titleInput !== "" &&
+      this.state.OptionOneInput !== "" &&
+      this.state.optionTwoInput !== ""
+    ) {
+      const pollObject = {
+        titleInput: this.state.titleInput,
+        questionInput: this.state.questionInput,
+        optionOneInput: this.state.optionOneInput,
+        optionTwoInput: this.state.optionTwoInput,
+        optionOneCount: 0,
+        optionTwoCount: 0,
+      };
+      const { key } = dbRef.push(pollObject);
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const dbRef = firebase.database().ref();
-        if (
-            this.state.questionInput !== "" &&
-            this.state.titleInput !== "" &&
-            this.state.OptionOneInput !== "" &&
-            this.state.optionTwoInput !== ""
-        ) {
-            const pollObject = {
-                titleInput: this.state.titleInput,
-                questionInput: this.state.questionInput,
-                optionOneInput: this.state.optionOneInput,
-                optionTwoInput: this.state.optionTwoInput,
-            };
-            // !!!!
-            const pollObj = dbRef.push(pollObject);
-            // !! Destructure this and re-name key state
-            // reset error handle and clear input text
-            this.setState({
-                key: pollObj.key,
-            });
-            // reset error handle and clear input text
-            this.setState({
-                errorMessage: "",
-                titleInput: "",
-                questionInput: "",
-                optionOneInput: "",
-                optionTwoInput: "",
-            });
-        } else {
-            // error handling
-            this.setState({
-                errorMessage: "Please fill in all inputs before submitting",
-            });
-        }
-    };
+      this.setState({
+        key,
+        errorMessage: "",
+        titleInput: "",
+        questionInput: "",
+        optionOneInput: "",
+        optionTwoInput: "",
+      });
+    } else {
+      // error handling
+      this.setState({
+        errorMessage: "Please fill in all inputs before submitting",
+      });
+    }
+  };
 
-    render() {
+  render() {
         const userKey = this.state.key;
         return ( 
             <main>
@@ -125,6 +122,6 @@ class CreatePoll extends Component {
                 </section> 
             </main>
         );
-    }
+  }
 }
 export default CreatePoll;
