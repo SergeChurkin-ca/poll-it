@@ -42,22 +42,23 @@ class PollAnalytics extends Component {
           <h2>{poll.title}</h2>
           <p className="pollQuestion">{poll.question}</p>
           <p> Option A: {poll.optionA}</p>
-          <p> Option B: {poll.optionA}</p>
+          <p> Option B: {poll.optionB}</p>
           <div className="pollCounters">
             <div className="count countA">
-              <p>A votes:</p>
-              <p>{poll.optionACount}</p>
+              <p className="option">A votes</p>
+              <p className="countNum">{poll.optionACount}</p>
             </div>
             <div className="count countB">
-              <p>B votes: </p>
-              <p>{poll.optionBCount}</p>
+              <p className="option">B votes </p>
+              <p className="countNum">{poll.optionBCount}</p>
             </div>
             <div className="count countTotal">
-              <p>Total:</p>
-              <p>{poll.optionACount + poll.optionBCount}</p>
+              <p className="option">Total</p>
+              <p className="countNum">
+                {poll.optionACount + poll.optionBCount}
+              </p>
             </div>
           </div>
-          <p> The second option is: {poll.optionB} </p>
           <p>Need votes? Share your poll with the link below!</p>
           <Link to={`/polls/${key}/view`}>Share your poll!</Link>
         </section>
