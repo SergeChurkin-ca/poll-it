@@ -71,11 +71,21 @@ a {
 }
 
 .count {
-  width: 30%;
+  flex-basis: 33%;
   padding: 25px 10px;
   text-align: center;
 }
 
 .countA {
   background: #eae100;
+  color: #2d0c30;
+}
+
+.countB {
+  background: #2d0c30;
+  color: #f5f5f5;
+}
+.countTotal {
+  background: #e27a05;
+  color: #f5f5f5;
 }
