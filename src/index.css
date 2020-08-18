@@ -82,6 +82,7 @@ main {
   display: flex;
   height: 85vh;
   justify-content: center;
+  margin: 0 auto;
   min-height: 700px;
   overflow: hidden;
   width: 100vw;
