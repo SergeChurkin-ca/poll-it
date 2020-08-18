@@ -1,6 +1,7 @@
 // Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
+import './viewpoll.css';
 
 // Component ----- +
 class ViewPoll extends Component {
