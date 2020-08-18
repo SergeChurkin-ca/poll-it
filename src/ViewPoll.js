@@ -3,19 +3,19 @@ import React, { Component } from "react";
 import firebase from "./firebase";
 
 // Component ----- +
-class UserGeneratedPolls extends Component {
+class ViewPoll extends Component {
   constructor() {
     super();
     this.state = {
       poll: {},
       userSelection: "",
-      optionOneCount: 0,
-      optionTwoCount: 0,
+      optionACount: 0,
+      optionBCount: 0,
     };
   }
 
   componentDidMount() {
-    const key = this.props.match.params.actualId;
+    const key = this.props.match.params.pollKey;
     firebase
       .database()
       .ref(key)
@@ -35,10 +35,10 @@ class UserGeneratedPolls extends Component {
     });
   };
 
-  // Takes radio option from state (correspondomg with the option property in our firebase object) as an argument. The current poll object and option is targeted in the firebase database and it's count is incresed by one ---
-  sendCount = (option) => {
-    const key = this.props.match.params.actualId;
-    const dbRef = firebase.database().ref(`${key}/${option}`);
+  // Takes radio selection from state (correspondomg with the option property in our firebase object) as an argument. The current poll object and user selection is targeted in the firebase database and it's count is incresed by one ---
+  sendCount = (selection) => {
+    const key = this.props.match.params.pollKey;
+    const dbRef = firebase.database().ref(`${key}/${selection}`);
     dbRef.once("value", (snap) => {
       let count = snap.val();
       count++;
@@ -48,19 +48,20 @@ class UserGeneratedPolls extends Component {
 
   // We look at the user selection currently stored in state at time the submit button is clicked, and depending on which option is store in state, we pass that value as an argument to our send count method ---
   handleSubmit = (e) => {
+    const state = this.state;
     e.preventDefault();
-    let option1 = this.state.optionOneCount;
-    let option2 = this.state.optionTwoCount;
-    if (this.state.userSelection === "optionA") {
-      option1++;
+    let optionA = state.optionOneCount;
+    let optionB = state.optionTwoCount;
+    if (state.userSelection === "optionA") {
+      optionA++;
       this.setState({
-        optionOneCount: option1,
+        optionOneCount: optionA,
       });
       this.sendCount("optionOneCount");
-    } else if (this.state.userSelection === "optionB") {
-      option2++;
+    } else if (state.userSelection === "optionB") {
+      optionB++;
       this.setState({
-        optionTwoCount: option2++,
+        optionTwoCount: optionB++,
       });
       this.sendCount("optionTwoCount");
     }
@@ -68,30 +69,31 @@ class UserGeneratedPolls extends Component {
 
   // Render JSX Method ----- +
   render() {
+    const poll = this.state.poll;
     return (
       <form onSubmit={this.handleSubmit}>
         <h1> User Generated Polls </h1>
-        <h2>{this.state.poll.titleInput}</h2>
-        <h3>{this.state.poll.questionInput}:</h3>
+        <h2>{poll.title}</h2>
+        <h3>{poll.question}:</h3>
         <label htmlFor="optionA">
-          {this.state.poll.optionOneInput}
+          {poll.optionA}
           <input
             type="radio"
             name="options"
             id="optionA"
             onChange={this.handleChange}
-            value={this.state.poll.optionOne}
+            value={poll.optionA}
           ></input>
         </label>
-        {this.state.poll.optionOne}
+        {poll.optionA}
         <label htmlFor="optionB">
-          {this.state.poll.optionTwoInput}
+          {poll.optionB}
           <input
             type="radio"
             name="options"
             id="optionB"
             onChange={this.handleChange}
-            value={this.state.poll.optionTwo}
+            value={poll.optionB}
           ></input>
         </label>
         <button type="submit">Answer</button>
@@ -100,4 +102,4 @@ class UserGeneratedPolls extends Component {
   }
 }
 
-export default UserGeneratedPolls;
+export default ViewPoll;

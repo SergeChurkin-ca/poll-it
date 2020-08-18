@@ -197,6 +197,12 @@ input:focus-within {
 }
 
 /* Classes For Arman */
+/* .hide {
+  visibility: hidden;
+  position: absolute;
+  z-index: -10;
+  top: 0;
+} */
 .hide {
   display: none;
 }
