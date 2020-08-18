@@ -1,0 +1,81 @@
+/* === !!! Remove before merge back with index.css file === */
+/* === GLOBAL STYLES === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: white;
+  color: #2d0c30;
+  font-size: 2rem;
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+  padding: 20px 0;
+}
+
+p,
+a,
+label,
+input,
+button {
+  font-family: "Barlow", sans-serif;
+  font-size: 2rem;
+}
+
+label,
+input {
+  color: #2d0c30;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* === POLL ANALYTICS COMPONENT === */
+.analytics {
+  background: white;
+  color: #2d0c30;
+  font-size: 2rem;
+}
+
+.analyticsInfo {
+  background: whitesmoke;
+  margin: 50px auto;
+  padding: 50px;
+  width: 90%;
+}
+
+.analyticsInfo h2,
+.analyticsInfo p {
+  width: 100%;
+}
+
+.pollQuestion {
+  font-size: 3.5rem;
+}
+
+.pollCounters {
+  background: white;
+  display: flex;
+}
+
+.count {
+  width: 30%;
+  padding: 25px 10px;
+  text-align: center;
+}
+
+.countA {
+  background: #eae100;
+}
