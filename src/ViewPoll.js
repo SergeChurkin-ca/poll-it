@@ -75,7 +75,9 @@ class ViewPoll extends Component {
         <form onSubmit={this.handleSubmit} className="viewPollForm">
           <h1> User Generated Polls </h1>
           <h2>{poll.title}</h2>
-          <h3>{poll.question}:</h3>
+          <h3>{poll.question}</h3>
+          <p>{poll.optionA}?</p>
+          <p>{poll.optionB}?</p>
           <label htmlFor="optionA">
             Option A
             <input
