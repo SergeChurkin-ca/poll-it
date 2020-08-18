@@ -53,7 +53,7 @@ class ViewPoll extends Component {
     e.preventDefault();
     let optionA = state.optionOneCount;
     let optionB = state.optionTwoCount;
-    // !!!!!!!!!!!!!!! need error handling in case submit is called when no input is selected !!!!!!!!
+
     if (state.userSelection === "optionA") {
       optionA++;
       this.setState({
@@ -70,8 +70,8 @@ class ViewPoll extends Component {
 
     // for thank you message
     this.setState({
-      thankYouMessage: true
-    })
+      thankYouMessage: true,
+    });
   };
 
   // Render JSX Method ----- +
@@ -79,7 +79,9 @@ class ViewPoll extends Component {
     const poll = this.state.poll;
     return (
       <main className="viewPoll">
-        <section className={this.state.thankYouMessage === false?'show':'hide'}>
+        <section
+          className={this.state.thankYouMessage === false ? "show" : "hide"}
+        >
           <form onSubmit={this.handleSubmit} className="viewPollForm">
             <h1> User Generated Polls </h1>
             <h2>{poll.title}</h2>
@@ -94,6 +96,7 @@ class ViewPoll extends Component {
                 id="optionA"
                 onChange={this.handleChange}
                 value={poll.optionA}
+                required
               ></input>
             </label>
             <label htmlFor="optionB">
@@ -104,12 +107,13 @@ class ViewPoll extends Component {
                 id="optionB"
                 onChange={this.handleChange}
                 value={poll.optionB}
+                required
               ></input>
             </label>
             <button type="submit">Answer</button>
           </form>
         </section>
-        <div className={this.state.thankYouMessage === true?'show':'hide'}>
+        <div className={this.state.thankYouMessage === true ? "show" : "hide"}>
           <h2>Thank you for your submission!</h2>
         </div>
       </main>
