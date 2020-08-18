@@ -36,7 +36,7 @@ class PollAnalytics extends Component {
         <p> The first option is: {poll.optionA} </p>
         <p>{poll.optionACount}</p>
         <p>{poll.optionBCount}</p>
-        <p>{poll.optionBCount + poll.optionBCount}</p>
+        <p>{poll.optionACount + poll.optionBCount}</p>
         <p> The second option is: {poll.optionB} </p>
         <p>Need more votes? Share your poll with the link below!</p>
         <Link to={`/polls/${key}/view`}>Share your poll!</Link>
