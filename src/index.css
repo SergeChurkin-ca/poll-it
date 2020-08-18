@@ -15,12 +15,12 @@ body {
   font-size: 2rem;
 }
 
-/* Typography --- */
+/* --- Typography --- */
 h1,
 h2,
 h3 {
   font-family: "Montserrat", sans-serif;
-  padding: 25px 0;
+  padding: 20px 0;
 }
 
 p,
@@ -28,9 +28,13 @@ a,
 label,
 input,
 button {
-  color: #2d0c30;
   font-family: "Barlow", sans-serif;
   font-size: 2rem;
+}
+
+label,
+input {
+  color: #2d0c30;
 }
 
 a {
@@ -58,26 +62,46 @@ button:focus-within,
 .button:hover,
 .button:focus,
 .button:focus-within {
-  border: 5px solid #2d0c30;
-  outline: none;
   transform: scale(1.03);
 }
 
-/* Layout --- */
-.pageContainer {
+img {
+  display: block;
+  width: 100%;
+}
+
+/* --- Layout ---*/
+/* Header and main are styled seperately here for layout concerns */
+header {
+  height: 15vh;
+  min-height: 120px;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  height: 85vh;
+  justify-content: center;
+  min-height: 700px;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.pageContainer,
+.homePage .copyContainer {
   margin: 0 auto;
   max-width: 1100px;
   width: 90%;
 }
 
-/* === HEADER === */
+/* === HEADER COMPONENT === */
 header {
   background: #e27a05;
   color: whitesmoke;
 }
 
 .header {
-  align-items: baseline;
+  align-items: center;
   display: flex;
   justify-content: space-between;
   max-width: 1400px;
@@ -90,12 +114,76 @@ header a {
   color: whitesmoke;
 }
 
-/* === HOME PAGE === */
-
-/* === CREATE POLL PAGE === */
-.createPoll {
-  padding: 50px 0;
+/* === HOME PAGE COMPONENT === */
+.homePage {
+  background: #eae100;
+  display: block;
 }
+
+.homePage,
+.homePage h2 {
+  font-size: 4rem;
+}
+
+.homePage h3 {
+  font-size: 3rem;
+}
+
+.homePage .imgWrapper {
+  float: left;
+  margin-right: 20px;
+  width: 150px;
+  max-height: 150px;
+}
+
+.homePage .copyWrapper {
+  width: 75%;
+}
+
+.homePage .right {
+  float: right;
+  width: 150px;
+}
+
+.styleBlock {
+  align-items: center;
+  display: flex;
+  height: 28.3333vh;
+}
+
+.styleBlock.block1 {
+  background: #f5f5f5;
+}
+
+.styleBlock.block2 {
+  background: #2d0c30;
+  color: #f5f5f5;
+}
+
+.styleBlock.block3 {
+  background: #eae100;
+}
+
+.toCreatePoll {
+  background: #f5f5f5;
+  border: 4px solid #2d0c30;
+  border-radius: 10px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-right: none;
+  box-shadow: 0 0 15px rgba(45, 12, 48, 0.4);
+  padding: 50px;
+  position: absolute;
+  right: 0;
+  top: 30%;
+  width: 25%;
+}
+
+.toCreatePoll p {
+  padding: 5px 0;
+}
+
+/* === CREATE POLL COMPONENT === */
 
 .createPollForm {
   background: #f5f5f5;
@@ -144,7 +232,29 @@ input:focus-within {
   outline: none;
 }
 
+/*  === VIEW POLL COMPONENT === */
+
+.viewPollForm {
+  background: #f5f5f5;
+  margin: 0 auto;
+  width: 75%;
+  padding: 50px;
+}
+
+.viewPollForm label {
+  background: #eae100;
+  padding: 50px;
+}
+
+/* ============================================ */
+
 /* Classes For Arman */
+/* .hide {
+  visibility: hidden;
+  position: absolute;
+  z-index: -10;
+  top: 0;
+} */
 .hide {
   display: none;
 }
