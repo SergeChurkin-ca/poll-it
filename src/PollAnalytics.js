@@ -12,6 +12,7 @@ class PollAnalytics extends Component {
     };
   }
 
+  // Takes the router link variable and passes it as an argument in the ref firebase method to retrieve
   componentDidMount() {
     const key = this.props.match.params.pollKey;
     firebase
