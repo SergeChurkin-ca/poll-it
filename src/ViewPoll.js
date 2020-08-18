@@ -71,33 +71,34 @@ class ViewPoll extends Component {
   render() {
     const poll = this.state.poll;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h1> User Generated Polls </h1>
-        <h2>{poll.title}</h2>
-        <h3>{poll.question}:</h3>
-        <label htmlFor="optionA">
-          {poll.optionA}
-          <input
-            type="radio"
-            name="options"
-            id="optionA"
-            onChange={this.handleChange}
-            value={poll.optionA}
-          ></input>
-        </label>
-        {poll.optionA}
-        <label htmlFor="optionB">
-          {poll.optionB}
-          <input
-            type="radio"
-            name="options"
-            id="optionB"
-            onChange={this.handleChange}
-            value={poll.optionB}
-          ></input>
-        </label>
-        <button type="submit">Answer</button>
-      </form>
+      <main className="viewPoll">
+        <form onSubmit={this.handleSubmit} className="viewPollForm">
+          <h1> User Generated Polls </h1>
+          <h2>{poll.title}</h2>
+          <h3>{poll.question}:</h3>
+          <label htmlFor="optionA">
+            Option A
+            <input
+              type="radio"
+              name="options"
+              id="optionA"
+              onChange={this.handleChange}
+              value={poll.optionA}
+            ></input>
+          </label>
+          <label htmlFor="optionB">
+            Option B
+            <input
+              type="radio"
+              name="options"
+              id="optionB"
+              onChange={this.handleChange}
+              value={poll.optionB}
+            ></input>
+          </label>
+          <button type="submit">Answer</button>
+        </form>
+      </main>
     );
   }
 }
