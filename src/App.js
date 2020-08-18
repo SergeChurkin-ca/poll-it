@@ -7,6 +7,7 @@ import PollAnalytics from "./PollAnalytics";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ViewPoll from "./ViewPoll";
 
+// THIS IS A COMMENT SO THAT I CAN MAKE A PR
 // Component ----- +
 class App extends Component {
   render() {
