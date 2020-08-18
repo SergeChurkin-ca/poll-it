@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
 import { Link } from "react-router-dom";
+import './createpoll.css';
 
 // Component ----- +
 class CreatePoll extends Component {
@@ -100,7 +101,7 @@ class CreatePoll extends Component {
                 <h2> Make a Poll! </h2>
                 <p>
                   Use the form below to make your poll! It's not rocket science.
-                  Or is it? Only one way to find out: Make a poll!
+                  Or is it? Only one way to find out - make a poll!
                 </p>
                 <form
                   action="/"

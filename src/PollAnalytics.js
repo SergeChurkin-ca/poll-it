@@ -46,15 +46,17 @@ class PollAnalytics extends Component {
           <div className="pollCounters">
             <div className="count countA">
               <p>A votes:</p>
-              <p>{poll.optionACount}</p>
+              <p className="countNum">{poll.optionACount}</p>
             </div>
             <div className="count countB">
               <p>B votes: </p>
-              <p>{poll.optionBCount}</p>
+              <p className="countNum">{poll.optionBCount}</p>
             </div>
             <div className="count countTotal">
               <p>Total:</p>
-              <p>{poll.optionACount + poll.optionBCount}</p>
+              <p className="countNum">
+                {poll.optionACount + poll.optionBCount}
+              </p>
             </div>
           </div>
           <p> The second option is: {poll.optionB} </p>
