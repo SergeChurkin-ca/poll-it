@@ -1,7 +1,9 @@
+// Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
 import { Link } from "react-router-dom";
 
+// Component ----- +
 class PollLinks extends Component {
   constructor() {
     super();
@@ -9,6 +11,7 @@ class PollLinks extends Component {
       poll: {},
     };
   }
+
   componentDidMount() {
     firebase
       .database()
@@ -20,6 +23,7 @@ class PollLinks extends Component {
       });
   }
 
+  // Render JSX  ----- +
   render() {
     console.log(this.state.poll.votes);
     return (

@@ -1,11 +1,12 @@
+// Imports ----- +
 import React, { Component } from "react";
 import HomePage from "./HomePage";
 import CreatePoll from "./CreatePoll";
 import PollLinks from "./PollLinks";
-
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserGeneratedPolls from "./UserGeneratedPolls";
 
+// Component ----- +
 class App extends Component {
   render() {
     return (

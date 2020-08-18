@@ -1,6 +1,8 @@
+// Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
 
+// Component ----- +
 class UserGeneratedPolls extends Component {
   constructor() {
     super();
@@ -24,12 +26,16 @@ class UserGeneratedPolls extends Component {
       });
   }
 
+  // === Component Methods ===
+
+  // When radio button is clicked the value of the id attribute is stored in state ---
   handleChange = (e) => {
     this.setState({
       userSelection: e.target.id,
     });
   };
 
+  // Takes radio option from state (correspondomg with the option property in our firebase object) as an argument. The current poll object and option is targeted in the firebase database and it's count is incresed by one ---
   sendCount = (option) => {
     const key = this.props.match.params.actualId;
     const dbRef = firebase.database().ref(`${key}/${option}`);
@@ -40,6 +46,7 @@ class UserGeneratedPolls extends Component {
     });
   };
 
+  // We look at the user selection currently stored in state at time the submit button is clicked, and depending on which option is store in state, we pass that value as an argument to our send count method ---
   handleSubmit = (e) => {
     e.preventDefault();
     let option1 = this.state.optionOneCount;
@@ -59,6 +66,7 @@ class UserGeneratedPolls extends Component {
     }
   };
 
+  // Render JSX Method ----- +
   render() {
     return (
       <form onSubmit={this.handleSubmit}>

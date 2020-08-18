@@ -1,7 +1,9 @@
+// Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
 import { Link } from "react-router-dom";
 
+// Component ----- +
 class CreatePoll extends Component {
   constructor() {
     super();
@@ -15,6 +17,7 @@ class CreatePoll extends Component {
     };
   }
 
+  // Component Methods -----+
   handleChange = (e) => {
     switch (e.target.id) {
       case "titleInput":
@@ -42,9 +45,12 @@ class CreatePoll extends Component {
     }
   };
 
+  //
   handleSubmit = (event) => {
     event.preventDefault();
     const dbRef = firebase.database().ref();
+
+    // If form is not empty, update state with from data and push it to firebase
     if (
       this.state.questionInput !== "" &&
       this.state.titleInput !== "" &&
@@ -60,7 +66,7 @@ class CreatePoll extends Component {
         optionTwoCount: 0,
       };
       const { key } = dbRef.push(pollObject);
-
+      // Reset state
       this.setState({
         key,
         errorMessage: "",
@@ -70,13 +76,14 @@ class CreatePoll extends Component {
         optionTwoInput: "",
       });
     } else {
-      // error handling
+      // If form is empty, show custom error message
       this.setState({
         errorMessage: "Please fill in all inputs before submitting",
       });
     }
   };
 
+  // Render JSX ----- +
   render() {
     const userKey = this.state.key;
     return (
