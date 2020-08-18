@@ -30,8 +30,7 @@ class CreatePoll extends Component {
             <div className="copyWrapper">
               <h2>Use Anywhere</h2>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Distinctio ex eveniet repellendus, provident animi consectetur!
+                Use your customized poll to poll your team in slack, plan your family picnic on facebook, or even settle a hot debate in whatsapp! Your poll can go anywhere and do anything. It's omnipolltent!
               </p>
             </div>
           </div>
@@ -48,8 +47,7 @@ class CreatePoll extends Component {
             <div className="copyWrapper">
               <h2>Share With Friends</h2>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Distinctio ex eveniet repellendus, provident animi consectetur!
+                Share the link to your poll with friends, family members, and peers! Post it on your wall, or on an instagram story. There is literally no place on the internet for your friends to hide from your poll!
               </p>
             </div>
           </div>
