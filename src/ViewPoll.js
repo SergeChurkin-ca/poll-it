@@ -11,6 +11,7 @@ class ViewPoll extends Component {
       userSelection: "",
       optionACount: 0,
       optionBCount: 0,
+      thankYouMessage: false,
     };
   }
 
@@ -52,6 +53,7 @@ class ViewPoll extends Component {
     e.preventDefault();
     let optionA = state.optionOneCount;
     let optionB = state.optionTwoCount;
+    // !!!!!!!!!!!!!!! need error handling in case submit is called when no input is selected !!!!!!!!
     if (state.userSelection === "optionA") {
       optionA++;
       this.setState({
@@ -65,6 +67,11 @@ class ViewPoll extends Component {
       });
       this.sendCount("optionTwoCount");
     }
+
+    // for thank you message
+    this.setState({
+      thankYouMessage: true
+    })
   };
 
   // Render JSX Method ----- +
@@ -72,34 +79,39 @@ class ViewPoll extends Component {
     const poll = this.state.poll;
     return (
       <main className="viewPoll">
-        <form onSubmit={this.handleSubmit} className="viewPollForm">
-          <h1> User Generated Polls </h1>
-          <h2>{poll.title}</h2>
-          <h3>{poll.question}</h3>
-          <p>{poll.optionA}?</p>
-          <p>{poll.optionB}?</p>
-          <label htmlFor="optionA">
-            Option A
-            <input
-              type="radio"
-              name="options"
-              id="optionA"
-              onChange={this.handleChange}
-              value={poll.optionA}
-            ></input>
-          </label>
-          <label htmlFor="optionB">
-            Option B
-            <input
-              type="radio"
-              name="options"
-              id="optionB"
-              onChange={this.handleChange}
-              value={poll.optionB}
-            ></input>
-          </label>
-          <button type="submit">Answer</button>
-        </form>
+        <section className={this.state.thankYouMessage === false?'show':'hide'}>
+          <form onSubmit={this.handleSubmit} className="viewPollForm">
+            <h1> User Generated Polls </h1>
+            <h2>{poll.title}</h2>
+            <h3>{poll.question}</h3>
+            <p>{poll.optionA}?</p>
+            <p>{poll.optionB}?</p>
+            <label htmlFor="optionA">
+              Option A
+              <input
+                type="radio"
+                name="options"
+                id="optionA"
+                onChange={this.handleChange}
+                value={poll.optionA}
+              ></input>
+            </label>
+            <label htmlFor="optionB">
+              Option B
+              <input
+                type="radio"
+                name="options"
+                id="optionB"
+                onChange={this.handleChange}
+                value={poll.optionB}
+              ></input>
+            </label>
+            <button type="submit">Answer</button>
+          </form>
+        </section>
+        <div className={this.state.thankYouMessage === true?'show':'hide'}>
+          <h2>Thank you for your submission!</h2>
+        </div>
       </main>
     );
   }
