@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
 import { Link } from "react-router-dom";
-import './createpoll.css';
+import "./createpoll.css";
 
 // Component ----- +
 class CreatePoll extends Component {
@@ -63,7 +63,7 @@ class CreatePoll extends Component {
       const pollObject = {
         title: state.title,
         question: state.question,
-        optionA: state.optionB,
+        optionA: state.optionA,
         optionB: state.optionB,
         optionACount: 0,
         optionBCount: 0,
