@@ -196,13 +196,8 @@ input:focus-within {
   outline: none;
 }
 
-/* Classes For Arman */
-/* .hide {
-  visibility: hidden;
-  position: absolute;
-  z-index: -10;
-  top: 0;
-} */
+/* styles for Arman */
+
 .hide {
   display: none;
 }

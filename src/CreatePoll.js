@@ -88,7 +88,7 @@ class CreatePoll extends Component {
     return (
       <main>
         {(() => {
-          if (this.state.isLinkShowing == false) {
+          if (this.state.isLinkShowing === false) {
             return (
               <section className="createPoll pageContainer">
               <h2> Make a Poll! </h2>
@@ -134,7 +134,7 @@ class CreatePoll extends Component {
               <p> {this.state.errorMessage} </p>
             </section>
             )
-          } else if (this.state.isLinkShowing == true) {
+          } else if (this.state.isLinkShowing === true) {
             return (
               <div>
                 <h2>Wow! You just made a poll!</h2>
