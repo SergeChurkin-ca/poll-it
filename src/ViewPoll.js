@@ -59,13 +59,13 @@ class ViewPoll extends Component {
       this.setState({
         optionOneCount: optionA,
       });
-      this.sendCount("optionOneCount");
+      this.sendCount("optionACount");
     } else if (state.userSelection === "optionB") {
       optionB++;
       this.setState({
         optionTwoCount: optionB++,
       });
-      this.sendCount("optionTwoCount");
+      this.sendCount("optionBCount");
     }
 
     // for thank you message
@@ -80,7 +80,7 @@ class ViewPoll extends Component {
     return (
       <main className="viewPoll">
         <section
-          className={this.state.thankYouMessage === false ? "show" : "hide"}
+        // className={this.state.thankYouMessage === false ? "show" : "hide"}
         >
           <form onSubmit={this.handleSubmit} className="viewPollForm">
             <h1> User Generated Polls </h1>
