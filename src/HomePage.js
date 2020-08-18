@@ -8,8 +8,7 @@ class CreatePoll extends Component {
         <section className="homePage">
           <h2>poll it together</h2>
           <p>
-            Whether its money, the last doughnut or your pride at stake, you can
-            always settle it with a poll!
+            Whether its money, the last doughnut or your pride at stake, to settle any argument simply invoke the public's opinion! Make a poll!
           </p>
           <div className="toCreatePoll">
             <p>Take me to the Poll Maker!</p>

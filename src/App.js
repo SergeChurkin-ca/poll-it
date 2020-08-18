@@ -12,7 +12,7 @@ class App extends Component {
       <Router>
         <header>
           <div className="header">
-            <h1>Poll it together</h1>
+            <h1>Poll it Together</h1>
             <a href="#">Create a Poll</a>
           </div>
         </header>
