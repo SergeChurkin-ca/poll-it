@@ -1,7 +1,10 @@
 // Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
-import './viewpoll.css';
+import "./viewpoll.css";
+
+// Module Variables ---- +
+const localStorageItem = "answeredPolls";
 
 // Component ----- +
 class ViewPoll extends Component {
@@ -12,7 +15,8 @@ class ViewPoll extends Component {
       userSelection: "",
       optionACount: 0,
       optionBCount: 0,
-      thankYouMessage: false,
+      isAnswered: false,
+      isStored: false,
     };
   }
 
@@ -48,13 +52,56 @@ class ViewPoll extends Component {
     });
   };
 
+  //
+  updateStorage = (key) => {
+    const answeredPollsStorage = window.localStorage.getItem(localStorageItem);
+    const answeredPollsArray = [];
+
+    if (answeredPollsStorage) {
+      answeredPollsArray.push(...answeredPollsStorage.split(","));
+    }
+
+    answeredPollsArray.push(key);
+    window.localStorage.setItem(localStorageItem, answeredPollsArray.join(","));
+  };
+
+  checkIsAnswered = (key) => {
+    const answeredPollStorage = window.localStorage.getItem(localStorageItem);
+
+    if (answeredPollStorage) {
+      return answeredPollStorage.split(",").some((storedKey) => {
+        return storedKey === key;
+      });
+    } else {
+      return false;
+    }
+  };
+
   // We look at the user selection currently stored in state at time the submit button is clicked, and depending on which option is store in state, we pass that value as an argument to our send count method ---
   handleSubmit = (e) => {
+    const key = this.props.match.params.pollKey;
     const state = this.state;
     e.preventDefault();
     let optionA = state.optionOneCount;
     let optionB = state.optionTwoCount;
 
+    // Checks if poll has been answered. If no, stops sumbit function
+    if (this.checkIsAnswered(key)) {
+      this.setState({
+        isStored: true,
+      });
+      return;
+    }
+
+    // Adds the poll key to list of stored items
+    this.updateStorage(key);
+
+    // Displays messge to user that poll has been completed
+    this.setState({
+      isAnswered: true,
+    });
+
+    // Updates state count depending on which option the user has selected
     if (state.userSelection === "optionA") {
       optionA++;
       this.setState({
@@ -68,11 +115,6 @@ class ViewPoll extends Component {
       });
       this.sendCount("optionBCount");
     }
-
-    // for thank you message
-    this.setState({
-      thankYouMessage: true,
-    });
   };
 
   // Render JSX Method ----- +
@@ -114,8 +156,14 @@ class ViewPoll extends Component {
             <button type="submit">Answer</button>
           </form>
         </section>
-        <div className={this.state.thankYouMessage === true ? "show" : "hide"}>
+        <div className={this.state.isAnswered === true ? "show" : "hide"}>
           <h2>Thank you for your submission!</h2>
+        </div>
+        <div className={this.state.isStored === true ? "show" : "hide"}>
+          <h2>
+            DONT FUCKING SUBMIT AGAIN, YOU ANIMAL! (LOL GUYS, CHILL WE WILL
+            CHANGE THIS COPY LATER)
+          </h2>
         </div>
       </main>
     );
