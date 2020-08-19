@@ -73,7 +73,7 @@ class CreatePoll extends Component {
       const pollObject = {
 
         name: state.name,
-        question: state.question,
+        question,
         optionA: state.optionA,
         optionB: state.optionB,
         optionACount: 0,
@@ -117,14 +117,15 @@ class CreatePoll extends Component {
           if (state.isLinkShowing === false) {
             return (
               <section className="createPoll pageContainer">
-                <h2> Make a Poll! </h2>
+                <h2>Make a Poll!</h2>
                 <p>
-                  Use the form below to make your poll!It 's not rocket science.
+                  Use the form below to make your poll! It 's not rocket science.
                   Or is it ? Only one way to find out - make a poll!
                 </p>
                 <form
                   action="/"
                   onSubmit={this.handleSubmit}
+                  onReset={this.handleReset}
                   className="createPollForm"
                 >
                   <label htmlFor="name"> <span>Name</span>Tell us who you are!</label>
@@ -144,8 +145,7 @@ class CreatePoll extends Component {
                     required
                   />
                   <label htmlFor="optionA">
-                    <span>Option A</span> What's the first choice?
-                  </label>
+                    <span>Option A</span>What's the first choice?</label>
                   <input
                     type="text"
                     id="optionA"
@@ -153,7 +153,7 @@ class CreatePoll extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <label htmlFor="optionB"><span>Option</span>Put the second choice here!</label>
+                  <label htmlFor="optionB"><span>Option B</span>Put the second choice here!</label>
                   <input
                     type="text"
                     id="optionB"
@@ -162,16 +162,17 @@ class CreatePoll extends Component {
                     required
                   />
                   <button type="submit">I'm done!</button>
+                  <button type="reset">Reset</button>
                 </form>
               </section>
             );
           } else if (state.isLinkShowing === true) {
             return (
               <div className="pageContainer">
-                <h2> Wow!You just made a poll! </h2>
+                <h2>Wow! You just made a poll!</h2>
                 <p>
-                  We expected this, so we made a little chart of your poll 's
-                  stat 's just for you! We did this because we care.
+                  We expected this, so we made a little chart of your poll's
+                  stat's just for you! We did this because we care.
                 </p>
                 <Link to={`/polls/${key}/analytics`}>Poll up your stats!</Link>
               </div>
