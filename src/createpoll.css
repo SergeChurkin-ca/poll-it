@@ -265,28 +265,6 @@ html {
 }
 
 
-/* === HEADER COMPONENT === */
-
-header {
-    background: #e27a05;
-    color: whitesmoke;
-}
-
-.header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 15px 0;
-    width: 90%;
-}
-
-header a {
-    color: whitesmoke;
-}
-
-
 /* === CREATE POLL COMPONENT === */
 
 .createPollForm {
@@ -309,7 +287,7 @@ header a {
 .createPollForm label span {
     text-transform: capitalize;
     padding: 10px;
-    margin: 10px auto;
+    font-family: "Montserrat", sans-serif;
 }
 
 .createPoll h2,
@@ -319,16 +297,18 @@ header a {
     max-width: 800px;
 }
 
-.createPollForm input,
-.createPollForm span {
-    margin: auto;
-    width: 90%;
+.createPollForm label {
+    font-family: "Barlow", sans-serif;
+    font-size: 1.6rem;
+    padding: 10px;
+    margin: 10px 10px;
 }
 
-.createPollForm label {
-    font-family: "Montserrat", sans-serif;
-    text-align: left;
+.createPollForm input,
+.createPollForm span {
+    margin: 15px 0;
     font-size: 1.6rem;
+    width: 90%;
 }
 
 .createPollForm input {
@@ -336,24 +316,24 @@ header a {
     border-radius: 10px;
     font-size: 2.5rem;
     margin: 10px auto;
-    padding: 5px;
+    padding: 10px;
     background-color: #eae100;
     font-family: "Barlow", sans-serif;
 }
 
 .buttonBox {
-    width: 90%;
-    margin: auto;
+    width: 80%;
     display: flex;
     justify-content: space-between;
+    justify-items: center;
+    align-items: center;
     position: relative;
 }
 
 .createPollForm button {
-    margin: 5px 0;
+    margin: 10px;
     padding: 10px;
-    padding-bottom: 10px;
-    width: 45%;
+    width: 35%;
     font-family: "Barlow", sans-serif;
     font-weight: 500;
     font-size: 1.6rem
@@ -382,8 +362,11 @@ input:focus-within {
     .createPoll p,
     .createPoll h2 {
         padding: 10px;
-        margin: 10px 0;
+        margin: 10px 20px;
         max-width: 800px;
+    }
+    .createPollForm label {
+        margin: 10px 20px;
     }
 }
 
@@ -396,12 +379,16 @@ input:focus-within {
     }
     .createPollForm input {
         font-size: 1.8rem;
+        margin: 10px 10px;
+    }
+    .createPollForm label {
+        margin: 10px 10px;
     }
     .createPollForm h2 {
         font-size: 2rem;
     }
     .createPollForm button {
-        margin: 20px;
+        margin: 20px 0;
         padding: 10px;
         padding-bottom: 10px;
     }
@@ -416,10 +403,14 @@ input:focus-within {
     }
     .createPollForm input {
         font-size: 1.8rem;
+        margin: 10px 10px;
     }
     .createPollForm h2 {
         font-size: 2rem;
         text-align: center;
         width: 80%;
+    }
+    .createPollForm label {
+        margin: 10px 10px;
     }
 }
