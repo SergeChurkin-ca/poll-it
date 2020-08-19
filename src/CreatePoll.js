@@ -74,7 +74,7 @@ class CreatePoll extends Component {
       const pollObject = {
 
         name: state.name,
-        question: state.question,
+        question,
         optionA: state.optionA,
         optionB: state.optionB,
         optionACount: 0,
@@ -95,9 +95,9 @@ class CreatePoll extends Component {
       });
     } else {
       // If form is empty, show custom error message
-      this.setState({
-        errorMessage: "Please fill in all inputs before submitting",
-      });
+      //this.setState({
+        //errorMessage: "Please fill in all inputs before submitting",
+      //});
     }
   };
 
@@ -132,6 +132,7 @@ class CreatePoll extends Component {
                 <form
                   action="/"
                   onSubmit={this.handleSubmit}
+                  onReset={this.handleReset}
                   className="createPollForm"
                 >
                   <label htmlFor="name"> <span>Name</span>Tell us who you are!</label>
@@ -140,6 +141,7 @@ class CreatePoll extends Component {
                     id="name"
                     value={state.name}
                     onChange={this.handleChange}
+                    required
                   />
                   <label htmlFor="question"><span>Question</span>What do you wanna know?</label>
                   <input
@@ -147,6 +149,7 @@ class CreatePoll extends Component {
                     id="question"
                     value={state.question}
                     onChange={this.handleChange}
+                    required
                   />
                   <label htmlFor="optionA">
                     <span>Option A</span>What's the first choice?</label>
@@ -155,6 +158,7 @@ class CreatePoll extends Component {
                     id="optionA"
                     value={state.optionA}
                     onChange={this.handleChange}
+                    required
                   />
                   <label htmlFor="optionB"><span>Option B</span>Put the second choice here!</label>
                   <input
@@ -162,8 +166,10 @@ class CreatePoll extends Component {
                     id="optionB"
                     value={state.optionB}
                     onChange={this.handleChange}
+                    required
                   />
                   <button type="submit">I'm done!</button>
+                  <button type="reset">Reset</button>
                 </form>
                 <p> {state.errorMessage} </p>
               </section>
