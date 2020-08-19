@@ -131,7 +131,7 @@ textarea {
 
 button,
 input {
-    overflow: visible
+    overflow: visible;
 }
 
 button,
@@ -350,13 +350,15 @@ header a {
 }
 
 .createPollForm button {
-    margin: 5px 0;
+    margin: 3% 5%;
     padding: 10px;
     padding-bottom: 10px;
-    width: 45%;
     font-family: "Barlow", sans-serif;
     font-weight: 500;
-    font-size: 1.6rem
+    font-size: 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 200px;
 }
 
 .createPollForm .resetButton {
@@ -404,6 +406,7 @@ input:focus-within {
         margin: 20px;
         padding: 10px;
         padding-bottom: 10px;
+        flex: 1 0 100px;
     }
 }
 
