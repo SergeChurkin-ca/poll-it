@@ -14,7 +14,7 @@ class CreatePoll extends Component {
       question: "",
       optionA: "",
       optionB: "",
-      errorMessage: "",
+      // errorMessage: "",
       isLinkShowing: false,
     };
   }
@@ -47,11 +47,22 @@ class CreatePoll extends Component {
     }
   };
 
+  // Takes a string as an argument, if string does not have a "?" append it to the end
+  isQuestion = (string) => {
+    const lastIndex = string.length - 1;
+    if (string.charAt(lastIndex) !== "?") {
+      return string.concat("?");
+    } else {
+      return string;
+    }
+  };
+
   //
   handleSubmit = (event) => {
     event.preventDefault();
     const dbRef = firebase.database().ref();
     const state = this.state;
+    const question = this.isQuestion(state.question);
 
     // If form is not empty, update state with from data and push it to firebase
     if (
@@ -62,7 +73,7 @@ class CreatePoll extends Component {
     ) {
       const pollObject = {
         title: state.title,
-        question: state.question,
+        question: question,
         optionA: state.optionA,
         optionB: state.optionB,
         optionACount: 0,
@@ -108,35 +119,35 @@ class CreatePoll extends Component {
                   onSubmit={this.handleSubmit}
                   className="createPollForm"
                 >
-                  <label htmlFor="title"> title </label>
+                  <label htmlFor="title">title</label>
                   <input
                     type="text"
                     id="title"
                     value={state.title}
                     onChange={this.handleChange}
                   />
-                  <label htmlFor="question"> question </label>
+                  <label htmlFor="question">question</label>
                   <input
                     type="text"
                     id="question"
                     value={state.question}
                     onChange={this.handleChange}
                   />
-                  <label htmlFor="optionA"> option one </label>
+                  <label htmlFor="optionA">option one</label>
                   <input
                     type="text"
                     id="optionA"
                     value={state.optionA}
                     onChange={this.handleChange}
                   />
-                  <label htmlFor="optionB"> option two </label>
+                  <label htmlFor="optionB">option two</label>
                   <input
                     type="text"
                     id="optionB"
                     value={state.optionB}
                     onChange={this.handleChange}
                   />
-                  <button type="submit"> I 'm done!</button>
+                  <button type="submit">I'm done!</button>
                 </form>
                 <p> {state.errorMessage} </p>
               </section>
