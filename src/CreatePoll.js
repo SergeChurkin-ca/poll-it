@@ -89,6 +89,19 @@ class CreatePoll extends Component {
     }
   };
 
+  handleReset = (e) => {
+    e.preventDefault();
+    this.setState({
+      key: "",
+      title: "",
+      question: "",
+      optionA: "",
+      optionB: "",
+      errorMessage: "",
+      isLinkShowing: false,
+    });
+}
+
   render() {
     const state = this.state;
     const key = state.key;
@@ -101,45 +114,53 @@ class CreatePoll extends Component {
               <section className="createPoll pageContainer">
                 <h2> Make a Poll! </h2>{" "}
                 <p>
-                  Use the form below to make your poll!It 's not rocket science.
-                  Or is it ? Only one way to find out - make a poll!
-                </p>{" "}
+                  Use the form below to make your poll. It's not rocket science.
+                  Or is it? Only one way to find out - make a poll!
+                </p>
                 <form
                   action="/"
                   onSubmit={this.handleSubmit}
+                  onReset={this.handleReset}
                   className="createPollForm"
                 >
-                  <label htmlFor="title"> title </label>{" "}
+                  <label htmlFor="name"> <span>Name</span>Enter your name so your friends know who's poll it is</label>
                   <input
                     type="text"
                     id="title"
                     value={state.title}
                     onChange={this.handleChange}
-                  />{" "}
-                  <label htmlFor="question"> question </label>{" "}
+                    required
+                  />
+                  <label htmlFor="question"> question </label>
                   <input
                     type="text"
                     id="question"
                     value={state.question}
                     onChange={this.handleChange}
-                  />{" "}
-                  <label htmlFor="optionA"> option one </label>{" "}
+                    required
+                  />
+                  <label htmlFor="optionA"> option one </label>
                   <input
                     type="text"
                     id="optionA"
                     value={state.optionA}
                     onChange={this.handleChange}
-                  />{" "}
-                  <label htmlFor="optionB"> option two </label>{" "}
+                    required
+                  />
+                  <label htmlFor="optionB"> option two </label>
                   <input
                     type="text"
                     id="optionB"
                     value={state.optionB}
                     onChange={this.handleChange}
-                  />{" "}
-                  <button type="submit"> I 'm done!</button>{" "}
-                </form>{" "}
-                <p> {state.errorMessage} </p>{" "}
+                    required
+                  />
+                  <div className="buttonBox">
+                    <button type="submit" className="submitButton">I'm done!</button>
+                    <button type="reset" className="resetButton">Reset</button>
+                  </div>
+                </form>
+                <p> {state.errorMessage} </p>
               </section>
             );
           } else if (state.isLinkShowing === true) {

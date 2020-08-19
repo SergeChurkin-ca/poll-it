@@ -278,7 +278,7 @@ header {
     justify-content: space-between;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 15px 0;
     width: 90%;
 }
 
@@ -296,9 +296,9 @@ header a {
     box-shadow: 0 0 15px rgba(45, 12, 48, 0.3);
     display: flex;
     flex-flow: row wrap;
-    margin: 0 auto;
+    margin: 20px auto;
     max-width: 800px;
-    padding: 50px;
+    padding: 30px;
     width: 90%;
 }
 
@@ -306,21 +306,18 @@ header a {
     box-shadow: 0 0 25px rgba(45, 12, 48, 0.3);
 }
 
-.createPollForm h2,
 .createPollForm label {
     text-transform: capitalize;
     padding: 10px;
-    margin: 20px;
+    margin: 20px auto;
 }
 
-.createPollForm p {
-    padding: 15px;
-    margin: 15px;
-}
-
-.createPollForm {
+.createPoll h2,
+.createPoll p {
     padding: 10px;
-    margin: 20px;
+    margin: 20px 0;
+    max-width: 800px;
+    border: 3px hotpink solid;
 }
 
 .createPollForm input,
@@ -331,6 +328,7 @@ header a {
 
 .createPollForm label {
     font-family: "Montserrat", sans-serif;
+    text-align: left;
 }
 
 .createPollForm input {
@@ -339,12 +337,29 @@ header a {
     font-size: 2.5rem;
     margin: 10px auto;
     padding: 10px;
+    background-color: #eae100;
+    font-family: "Barlow", sans-serif;
+}
+
+.buttonBox {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 
 .createPollForm button {
     margin: 10px auto;
     padding: 10px;
     padding-bottom: 10px;
+    width: 45%;
+    font-family: "Barlow", sans-serif;
+}
+
+.createPollForm .resetButton {
+    background-color: lightgrey;
+    color: grey;
 }
 
 input:focus,
@@ -360,7 +375,15 @@ input:focus-within {
 
 /* Portrait tablet and small desktops */
 
-@media (max-width: 1024px) {}
+@media (max-width: 1000px) {
+    .createPollForm,
+    .createPoll p,
+    .createPoll h2 {
+        padding: 10px;
+        margin: 10px 0;
+        max-width: 800px;
+    }
+}
 
 
 /* Landscape phone to portrait tablet */
@@ -386,10 +409,15 @@ input:focus-within {
 /* Landscape phones and down */
 
 @media (max-width: 320px) {
+    header h1 {
+        text-align: center;
+    }
     .createPollForm input {
         font-size: 1.8rem;
     }
     .createPollForm h2 {
         font-size: 2rem;
+        text-align: center;
+        width: 80%;
     }
 }
