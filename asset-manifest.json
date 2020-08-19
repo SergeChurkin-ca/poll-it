@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/anonymousVotingBooth/static/css/main.248ebf1b.chunk.css",
+    "main.css": "/anonymousVotingBooth/static/css/main.5f8349af.chunk.css",
     "main.js": "/anonymousVotingBooth/static/js/main.61bd0007.chunk.js",
     "main.js.map": "/anonymousVotingBooth/static/js/main.61bd0007.chunk.js.map",
     "runtime-main.js": "/anonymousVotingBooth/static/js/runtime-main.066e2072.js",
@@ -8,15 +8,15 @@
     "static/js/2.910e8ad9.chunk.js": "/anonymousVotingBooth/static/js/2.910e8ad9.chunk.js",
     "static/js/2.910e8ad9.chunk.js.map": "/anonymousVotingBooth/static/js/2.910e8ad9.chunk.js.map",
     "index.html": "/anonymousVotingBooth/index.html",
-    "precache-manifest.89fa29632a5a2d8419281dd2ef3d11c7.js": "/anonymousVotingBooth/precache-manifest.89fa29632a5a2d8419281dd2ef3d11c7.js",
+    "precache-manifest.3db3994382560aeb5cd371445d259ee5.js": "/anonymousVotingBooth/precache-manifest.3db3994382560aeb5cd371445d259ee5.js",
     "service-worker.js": "/anonymousVotingBooth/service-worker.js",
-    "static/css/main.248ebf1b.chunk.css.map": "/anonymousVotingBooth/static/css/main.248ebf1b.chunk.css.map",
+    "static/css/main.5f8349af.chunk.css.map": "/anonymousVotingBooth/static/css/main.5f8349af.chunk.css.map",
     "static/js/2.910e8ad9.chunk.js.LICENSE.txt": "/anonymousVotingBooth/static/js/2.910e8ad9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.066e2072.js",
     "static/js/2.910e8ad9.chunk.js",
-    "static/css/main.248ebf1b.chunk.css",
+    "static/css/main.5f8349af.chunk.css",
     "static/js/main.61bd0007.chunk.js"
   ]
 }
