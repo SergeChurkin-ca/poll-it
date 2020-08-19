@@ -14,7 +14,6 @@ class CreatePoll extends Component {
       question: "",
       optionA: "",
       optionB: "",
-      // errorMessage: "",
       isLinkShowing: false,
     };
   }
@@ -83,7 +82,6 @@ class CreatePoll extends Component {
       const { key } = dbRef.push(pollObject);
       this.setState({
         key,
-        errorMessage: "",
         name: "",
         question: "",
         optionA: "",
@@ -93,12 +91,7 @@ class CreatePoll extends Component {
       this.setState({
         isLinkShowing: true,
       });
-    } else {
-      // If form is empty, show custom error message
-      //this.setState({
-        //errorMessage: "Please fill in all inputs before submitting",
-      //});
-    }
+    } 
   };
 
   handleReset = (e) => {
@@ -171,7 +164,6 @@ class CreatePoll extends Component {
                   <button type="submit">I'm done!</button>
                   <button type="reset">Reset</button>
                 </form>
-                <p> {state.errorMessage} </p>
               </section>
             );
           } else if (state.isLinkShowing === true) {
