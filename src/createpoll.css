@@ -315,7 +315,7 @@ header a {
 .createPoll h2,
 .createPoll p {
     padding: 10px;
-    margin: 15px 0;
+    /* margin: 15px 0; */
     max-width: 800px;
 }
 
@@ -323,7 +323,7 @@ header a {
     font-family: "Barlow", sans-serif;
     font-size: 1.6rem;
     padding: 10px;
-    margin: 10px 10px;
+    /* margin: 10px 10px; */
 }
 
 .createPollForm input,
@@ -371,6 +371,15 @@ header a {
     border: 0.5px solid lightgray;
     box-shadow: none;
     font-weight: 600;
+    margin: 3% 5%;
+    padding: 10px;
+    padding-bottom: 10px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 200px;
 }
 
 input:focus,
@@ -391,11 +400,11 @@ input:focus-within {
     .createPoll p,
     .createPoll h2 {
         padding: 10px;
-        margin: 10px 20px;
+        margin: 10px 0;
         max-width: 800px;
     }
     .createPollForm label {
-        margin: 10px 20px;
+        margin: 10px 0;
     }
 }
 
@@ -442,4 +451,23 @@ input:focus-within {
     .createPollForm label {
         margin: 10px 10px;
     }
+}
+
+header h1 {
+    text-align: center;
+}
+
+.createPollForm input {
+    font-size: 1.8rem;
+    margin: 10px 10px;
+}
+
+.createPollForm h2 {
+    font-size: 2rem;
+    text-align: center;
+    width: 80%;
+}
+
+.createPollForm label {
+    margin: 10px 10px;
 }
