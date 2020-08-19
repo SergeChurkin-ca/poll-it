@@ -25,6 +25,7 @@ h3 {
     font-family: "Montserrat", sans-serif;
     /* padding: 20px 0; */
     width: 80%;
+    font-family: "Barlow", sans-serif;
 }
 
 p,
@@ -32,7 +33,6 @@ a,
 label,
 input,
 button {
-    font-family: "Barlow", sans-serif;
     font-size: 2rem;
 }
 

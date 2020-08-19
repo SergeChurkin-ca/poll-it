@@ -10,7 +10,7 @@ class CreatePoll extends Component {
     super();
     this.state = {
       key: "",
-      title: "",
+      name: "",
       question: "",
       optionA: "",
       optionB: "",
@@ -22,9 +22,9 @@ class CreatePoll extends Component {
   // Component Methods -----+
   handleChange = (e) => {
     switch (e.target.id) {
-      case "title":
+      case "name":
         this.setState({
-          title: e.target.value,
+          name: e.target.value,
         });
         break;
       case "question":
@@ -123,15 +123,15 @@ class CreatePoll extends Component {
                   onReset={this.handleReset}
                   className="createPollForm"
                 >
-                  <label htmlFor="name"> <span>Name</span>Enter your name so your friends know who's poll it is</label>
+                  <label htmlFor="name"> <span>Name</span>Tell us who you are!</label>
                   <input
                     type="text"
-                    id="title"
-                    value={state.title}
+                    id="name"
+                    value={state.name}
                     onChange={this.handleChange}
                     required
                   />
-                  <label htmlFor="question"> question </label>
+                  <label htmlFor="question"><span>Question</span>What do you wanna know?</label>
                   <input
                     type="text"
                     id="question"
@@ -139,7 +139,9 @@ class CreatePoll extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <label htmlFor="optionA"> option one </label>
+                  <label htmlFor="optionA">
+                    <span>Option A</span> What's the first choice?
+                  </label>
                   <input
                     type="text"
                     id="optionA"
@@ -147,7 +149,7 @@ class CreatePoll extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <label htmlFor="optionB"> option two </label>
+                  <label htmlFor="optionB"><span>Option</span>Put the second choice here!</label>
                   <input
                     type="text"
                     id="optionB"
