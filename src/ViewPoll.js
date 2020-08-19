@@ -126,13 +126,12 @@ class ViewPoll extends Component {
       <main className="viewPoll">
         <section className={this.state.isAnswered === false ? "show" : "hide"}>
           <form onSubmit={this.handleSubmit} className="viewPollForm">
-            <h1> User Generated Polls </h1>
+            <h1>User Generated Polls</h1>
             <h2>{poll.name}'s poll</h2>
             <h3>{poll.question}</h3>
             <p>{poll.optionA}?</p>
             <p>{poll.optionB}?</p>
-            <label htmlFor="optionA">
-              Option A
+            <label htmlFor="optionA">Option A
               <input
                 type="radio"
                 name="options"
@@ -161,7 +160,7 @@ class ViewPoll extends Component {
         </div>
         <div className={this.state.isStored === true ? "show" : "hide"}>
           <h2>
-            DONT FUCKING SUBMIT AGAIN, YOU ANIMAL! (LOL GUYS, CHILL WE WILL
+            DON'T FUCKING SUBMIT AGAIN, YOU ANIMAL! (LOL GUYS, CHILL WE WILL
             CHANGE THIS COPY LATER)
           </h2>
         </div>
