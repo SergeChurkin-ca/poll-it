@@ -198,12 +198,20 @@ header a {
     border-top-right-radius: 0;
     border-right: none;
     box-shadow: 0 0 15px rgba(45, 12, 48, 0.4);
-    /* padding: 50px; */
     padding: 1em;
     position: fixed;
-    right: 0;
+    /* slide in effect of side sticker part1*/
+    right: -20em;
     top: 30%;
     width: 33%;
+}
+
+
+/* slide in effect of side sticker part2*/
+
+main:hover .toCreatePoll {
+    right: 0;
+    transition-duration: 0.7s;
 }
 
 .toCreatePoll p {
