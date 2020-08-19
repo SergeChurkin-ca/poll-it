@@ -107,11 +107,12 @@ class CreatePoll extends Component {
     const key = state.key;
     return (
       <main>
+        {" "}
         {(() => {
           if (state.isLinkShowing === false) {
             return (
               <section className="createPoll pageContainer">
-                <h2> Make a Poll! </h2>
+                <h2> Make a Poll! </h2>{" "}
                 <p>
                   Use the form below to make your poll. It's not rocket science.
                   Or is it? Only one way to find out - make a poll!
@@ -164,17 +165,20 @@ class CreatePoll extends Component {
             );
           } else if (state.isLinkShowing === true) {
             return (
-              <div>
-                <h2>Wow! You just made a poll!</h2>
+              <div className="pageContainer">
+                <h2> Wow!You just made a poll! </h2>{" "}
                 <p>
-                  We expected this, so we made a little chart of your poll's
-                  stat's just for you! We did this because we care.
-                </p>
-                <Link to={`/polls/${key}/analytics`}>Poll up your stats!</Link>
+                  We expected this, so we made a little chart of your poll 's
+                  stat 's just for you! We did this because we care.{" "}
+                </p>{" "}
+                <Link to={`/polls/${key}/analytics`}>
+                  {" "}
+                  Poll up your stats!{" "}
+                </Link>{" "}
               </div>
             );
           }
-        })()}
+        })()}{" "}
       </main>
     );
   }
