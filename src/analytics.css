@@ -59,6 +59,8 @@ a {
   margin: 30px auto;
   padding: 25px 50px;
   width: 90%;
+  border: 7px solid #2d0c30;
+  border-radius: 15px;
 }
 
 .analyticsInfo .copyWrapper {
@@ -89,6 +91,8 @@ a {
   font-family: "Montserrat", sans-serif;
   justify-content: space-around;
   margin: auto;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .count {
@@ -96,6 +100,8 @@ a {
   flex-basis: 32%;
   padding: 25px 0;
   text-align: center;
+  min-width: 200px;
+  margin:5px 5px;
 }
 
 .count p {
