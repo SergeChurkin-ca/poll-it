@@ -134,28 +134,30 @@ class CreatePoll extends Component {
                   onSubmit={this.handleSubmit}
                   className="createPollForm"
                 >
-                  <label htmlFor="title">title</label>
+                  <label htmlFor="name"> <span>Name</span>Tell us who you are!</label>
                   <input
                     type="text"
                     id="name"
                     value={state.name}
                     onChange={this.handleChange}
                   />
-                  <label htmlFor="question">question</label>
+                  <label htmlFor="question"><span>Question</span>What do you wanna know?</label>
                   <input
                     type="text"
                     id="question"
                     value={state.question}
                     onChange={this.handleChange}
                   />
-                  <label htmlFor="optionA">option one</label>
+                  <label htmlFor="optionA">
+                    <span>Option A</span> What's the first choice?
+                  </label>
                   <input
                     type="text"
                     id="optionA"
                     value={state.optionA}
                     onChange={this.handleChange}
                   />
-                  <label htmlFor="optionB">option two</label>
+                  <label htmlFor="optionB"><span>Option</span>Put the second choice here!</label>
                   <input
                     type="text"
                     id="optionB"

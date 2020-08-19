@@ -306,22 +306,21 @@ header a {
     box-shadow: 0 0 25px rgba(45, 12, 48, 0.3);
 }
 
-.createPollForm label {
+.createPollForm label span {
     text-transform: capitalize;
     padding: 10px;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 .createPoll h2,
 .createPoll p {
     padding: 10px;
-    margin: 20px 0;
+    margin: 15px 0;
     max-width: 800px;
-    border: 3px hotpink solid;
 }
 
 .createPollForm input,
-.createPollForm label {
+.createPollForm span {
     margin: auto;
     width: 90%;
 }
@@ -329,6 +328,7 @@ header a {
 .createPollForm label {
     font-family: "Montserrat", sans-serif;
     text-align: left;
+    font-size: 1.6rem;
 }
 
 .createPollForm input {
@@ -336,7 +336,7 @@ header a {
     border-radius: 10px;
     font-size: 2.5rem;
     margin: 10px auto;
-    padding: 10px;
+    padding: 5px;
     background-color: #eae100;
     font-family: "Barlow", sans-serif;
 }
@@ -350,11 +350,13 @@ header a {
 }
 
 .createPollForm button {
-    margin: 10px auto;
+    margin: 5px 0;
     padding: 10px;
     padding-bottom: 10px;
     width: 45%;
     font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem
 }
 
 .createPollForm .resetButton {
