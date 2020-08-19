@@ -297,72 +297,93 @@ header a {
     display: flex;
     flex-flow: row wrap;
     margin: 20px auto;
-    max-width: 800px;
+    max-width: 700px;
     padding: 30px;
     width: 90%;
+}
+
+.createPoll .copyWrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.createPollForm .copyWrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.createPollForm .copyWrapper h2 {
+    margin: 25px 0;
 }
 
 .createPollForm:focus-within {
     box-shadow: 0 0 25px rgba(45, 12, 48, 0.3);
 }
 
-.createPollForm label span {
-    text-transform: capitalize;
-    padding: 10px;
-    font-family: "Montserrat", sans-serif;
-}
-
 .createPoll h2,
 .createPoll p {
-    padding: 10px;
-    /* margin: 15px 0; */
-    max-width: 800px;
+    padding: 10px 0;
+    width: 50%;
+}
+
+.createPoll p {
+    line-height: 1.6;
+}
+
+.createPoll h2 {
+    padding: 15px 0;
+    font-size: 4rem;
+    margin-top: 25px;
+}
+
+.createPollForm h2 {
+    font-size: 3rem;
+}
+
+.createPollForm label span {
+    text-transform: capitalize;
+    margin-right: 8px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .createPollForm label {
     font-family: "Barlow", sans-serif;
     font-size: 1.6rem;
-    padding: 10px;
-    /* margin: 10px 10px; */
+    padding: 10px 0;
 }
 
-.createPollForm input,
-.createPollForm span {
-    margin: 15px 0;
+.createPollForm input {
     font-size: 1.6rem;
-    width: 90%;
+    width: 100%;
 }
 
 .createPollForm input {
     border: 2px solid #2d0c30;
     border-radius: 10px;
     font-size: 2.5rem;
-    margin: 10px auto;
+    margin: 10px 0;
     padding: 10px;
     background-color: #eae100;
     font-family: "Barlow", sans-serif;
 }
 
-.buttonBox {
-    width: 80%;
+.buttonContainer {
+    width: 60%;
     display: flex;
     justify-content: space-between;
     justify-items: center;
     align-items: center;
     position: relative;
+    flex-wrap: wrap;
+    margin: 20px auto;
 }
 
 .createPollForm button {
-    margin: 3% 5%;
     padding: 10px;
-    padding-bottom: 10px;
     font-family: "Barlow", sans-serif;
     font-weight: 500;
     font-size: 1.8rem;
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 0 200px;
-    justify-content: space-evenly;
+    width: 45%;
 }
 
 .createPollForm .resetButton {
@@ -371,15 +392,10 @@ header a {
     border: 0.5px solid lightgray;
     box-shadow: none;
     font-weight: 600;
-    margin: 3% 5%;
+    /*margin: 3% 5%;*/
     padding: 10px;
-    padding-bottom: 10px;
     font-family: "Barlow", sans-serif;
-    font-weight: 600;
-    font-size: 1.6rem;
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 0 200px;
+    /*flex: 1 0 200px;*/
 }
 
 input:focus,
@@ -396,10 +412,9 @@ input:focus-within {
 /* Portrait tablet and small desktops */
 
 @media (max-width: 1000px) {
-    .createPollForm,
     .createPoll p,
     .createPoll h2 {
-        padding: 10px;
+        padding: 10px 0;
         margin: 10px 0;
         max-width: 800px;
     }
@@ -417,16 +432,12 @@ input:focus-within {
     }
     .createPollForm input {
         font-size: 1.8rem;
-        /* margin: 10px 10px; */
-    }
-    .createPollForm label {
-        /* margin: 10px 10px; */
     }
     .createPollForm h2 {
         font-size: 2rem;
     }
     .createPollForm button {
-        padding: 10px;
+        padding: 10px 0;
         padding-bottom: 10px;
         flex: 1 0 100px;
     }
@@ -441,7 +452,7 @@ input:focus-within {
     }
     .createPollForm input {
         font-size: 1.8rem;
-        margin: 10px 10px;
+        margin: 10px 0;
     }
     .createPollForm h2 {
         font-size: 2rem;
@@ -449,25 +460,6 @@ input:focus-within {
         width: 80%;
     }
     .createPollForm label {
-        margin: 10px 10px;
+        margin: 10px 0;
     }
-}
-
-header h1 {
-    text-align: center;
-}
-
-.createPollForm input {
-    font-size: 1.8rem;
-    margin: 10px 10px;
-}
-
-.createPollForm h2 {
-    font-size: 2rem;
-    text-align: center;
-    width: 80%;
-}
-
-.createPollForm label {
-    margin: 10px 10px;
 }

@@ -117,52 +117,58 @@ class CreatePoll extends Component {
           if (state.isLinkShowing === false) {
             return (
               <section className="createPoll pageContainer">
-                <h2>Make a Poll!</h2>
-                <p>
-                  Use the form below to make your poll! It 's not rocket science.
-                  Or is it ? Only one way to find out - make a poll!
-                </p>
+                <div className="copyWrapper">
+                  <h2>Make a Poll!</h2>
+                  <p>
+                    Use the form below to make your poll! It 's not rocket science.
+                    Or is it ? Only one way to find out - make a poll!
+                  </p>
+                </div>
                 <form
                   action="/"
                   onSubmit={this.handleSubmit}
                   onReset={this.handleReset}
                   className="createPollForm"
                 >
-                  <label htmlFor="name"> <span>Name</span>Tell us who you are!</label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={state.name}
-                    onChange={this.handleChange}
-                    required
-                  />
-                  <label htmlFor="question"><span>Question</span>What do you wanna know?</label>
-                  <input
-                    type="text"
-                    id="question"
-                    value={state.question}
-                    onChange={this.handleChange}
-                    required
-                  />
-                  <label htmlFor="optionA">
-                    <span>Option A</span>What's the first choice?</label>
-                  <input
-                    type="text"
-                    id="optionA"
-                    value={state.optionA}
-                    onChange={this.handleChange}
-                    required
-                  />
-                  <label htmlFor="optionB"><span>Option B</span>Put the second choice here!</label>
-                  <input
-                    type="text"
-                    id="optionB"
-                    value={state.optionB}
-                    onChange={this.handleChange}
-                    required
-                  />
-                  <button type="submit">I'm done!</button>
-                  <button type="reset" className="resetButton">Reset</button>
+                  <div className="copyWrapper">
+                    <h2>Create Your Poll</h2>
+                    <label htmlFor="name"><span>Name</span>Tell us who you are!</label>
+                    <input
+                      type="text"
+                      id="name"
+                      value={state.name}
+                      onChange={this.handleChange}
+                      required
+                    />
+                    <label htmlFor="question"><span>Question</span>What do you wanna know?</label>
+                    <input
+                      type="text"
+                      id="question"
+                      value={state.question}
+                      onChange={this.handleChange}
+                      required
+                    />
+                    <label htmlFor="optionA"><span>Option A</span>What's the first choice?</label>
+                    <input
+                      type="text"
+                      id="optionA"
+                      value={state.optionA}
+                      onChange={this.handleChange}
+                      required
+                    />
+                    <label htmlFor="optionB"><span>Option B</span>Put the second choice here!</label>
+                    <input
+                      type="text"
+                      id="optionB"
+                      value={state.optionB}
+                      onChange={this.handleChange}
+                      required
+                    />
+                    <div className="buttonContainer">
+                      <button type="submit">I'm done!</button>
+                      <button type="reset" className="resetButton">Reset</button>
+                    </div>
+                  </div>
                 </form>
               </section>
             );
