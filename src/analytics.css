@@ -49,11 +49,20 @@ a {
   font-size: 2rem;
 }
 
+.analytics h2 {
+  padding: 50px 0 25px 0;
+}
+
 .analyticsInfo {
   background: whitesmoke;
-  margin: 50px auto;
-  padding: 50px;
+  border-radius: 20px;
+  margin: 30px auto;
+  padding: 25px 50px;
   width: 90%;
+}
+
+.analyticsInfo .copyWrapper {
+  width: 75%;
 }
 
 .analyticsInfo h2,
@@ -61,8 +70,14 @@ a {
   width: 100%;
 }
 
+.analyticsInfo h2 {
+  width: 25%;
+}
+
 .analytics p {
+  font-size: 2.5rem;
   margin: 10px;
+  line-height: 1.6;
 }
 
 .pollQuestion {
@@ -70,15 +85,21 @@ a {
 }
 
 .pollCounters {
-  background: white;
   display: flex;
   font-family: "Montserrat", sans-serif;
+  justify-content: space-around;
+  margin: auto;
 }
 
 .count {
-  flex-basis: 33%;
+  border-radius: 5px;
+  flex-basis: 32%;
   padding: 25px 0;
   text-align: center;
+}
+
+.count p {
+  line-height: normal;
 }
 
 .countA {
@@ -96,7 +117,7 @@ a {
   color: #f5f5f5;
 }
 
-.countNum {
-  font-size: 7rem;
+p.countNum {
   font-family: "Montserrat", sans-serif;
+  font-size: 7.5rem;
 }

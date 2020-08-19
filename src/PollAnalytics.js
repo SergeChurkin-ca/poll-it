@@ -40,9 +40,11 @@ class PollAnalytics extends Component {
         </p>
         <section className="analyticsInfo">
           <h2>{poll.name}'s poll</h2>
-          <p className="pollQuestion">{poll.question}</p>
-          <p> Option A: {poll.optionA}</p>
-          <p> Option B: {poll.optionB}</p>
+          <div className="copyWrapper">
+            <p className="pollQuestion">{poll.question}</p>
+            <p> Option A: {poll.optionA}</p>
+            <p> Option B: {poll.optionB}</p>
+          </div>
           <div className="pollCounters">
             <div className="count countA">
               <p className="option">A votes</p>
@@ -60,7 +62,9 @@ class PollAnalytics extends Component {
             </div>
           </div>
           <p>Need votes? Share your poll with the link below!</p>
-          <Link to={`/polls/${key}/view`}>Share your poll!</Link>
+          <Link className="button" to={`/polls/${key}/view`}>
+            Share your poll!
+          </Link>
         </section>
       </main>
     );
