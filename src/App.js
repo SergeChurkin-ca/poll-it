@@ -1,6 +1,7 @@
 // Imports ----- +
 import React, { Component, Fragment } from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 import HomePage from "./HomePage";
 import CreatePoll from "./CreatePoll";
 import PollAnalytics from "./PollAnalytics";
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/createpoll" component={CreatePoll} />
           <Route path="/polls/:pollKey/analytics" component={PollAnalytics} />
           <Route path="/polls/:pollKey/view" component={ViewPoll} />
+          <Footer />
         </Fragment>
       </Router>
     );

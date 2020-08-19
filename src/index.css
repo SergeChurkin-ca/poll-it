@@ -16,6 +16,14 @@ body {
     font-size: 2rem;
 }
 
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #2d0c30;
+    color: whitesmoke;
+}
+
 
 /* --- Typography --- */
 
@@ -85,9 +93,12 @@ img {
 
 /* Header and main are styled seperately here for layout concerns */
 
-header {
+/* header { */
     /* height: 20vh; */
-    min-height: 120px;
+    /* min-height: 120px; */
+/* } */
+.header h1 {
+    margin: 0px;
 }
 
 main {
@@ -96,7 +107,7 @@ main {
     justify-content: center;
     min-height: 700px;
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
 }
 
 .pageContainer,
@@ -121,7 +132,7 @@ header {
     justify-content: space-between;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 0px;
     width: 90%;
 }
 
@@ -221,15 +232,30 @@ main:hover .toCreatePoll {
 /* ============================================ */
 
 
-/* Classes For Arman */
+/* styles for rendered message on poll creation form */
+.pollCreatedMessage {
+    /* background-color: lightcoral; */
+    border: 7px solid #2d0c30;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 10vh;
+}
 
+.pollCreatedMessage p {
+    margin-bottom: 40px;
+}
 
-/* .hide {
-  visibility: hidden;
-  position: absolute;
-  z-index: -10;
-  top: 0;
-} */
+.pollCreatedMessage h2 {
+    width: 100%;
+}
+
+.toAnalyticsLink {
+    padding: 10px;
+    background-color: #e27a05;
+    color: whitesmoke;
+    border: 3px solid #2d0c30;
+    border-radius: 10px;
+}
 
 .hide {
     display: none;
@@ -250,9 +276,14 @@ main:hover .toCreatePoll {
         height: auto;
     }
     .toCreatePoll {
-        width: 50%;
-        top: 5%;
-        /* right: 10%; */
+        /* sticker moves down to the page */
+        position: relative;
+        right: 0;
+        width: 100%;
+        border: 4px solid #2d0c30;
+        border-radius: 10px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
     }
 }
 
