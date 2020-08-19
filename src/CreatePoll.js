@@ -162,7 +162,7 @@ class CreatePoll extends Component {
                     required
                   />
                   <button type="submit">I'm done!</button>
-                  <button type="reset">Reset</button>
+                  <button type="reset" className="resetButton">Reset</button>
                 </form>
               </section>
             );
