@@ -1,5 +1,3 @@
-@import url("setup.css");
-
 /* === GLOBAL STYLES === */
 
 * {
@@ -88,7 +86,7 @@ img {
 /* Header and main are styled seperately here for layout concerns */
 
 header {
-    height: 20vh;
+    /* height: 20vh; */
     min-height: 120px;
 }
 
