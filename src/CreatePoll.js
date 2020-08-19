@@ -14,7 +14,6 @@ class CreatePoll extends Component {
       question: "",
       optionA: "",
       optionB: "",
-      // errorMessage: "",
       isLinkShowing: false,
     };
   }
@@ -83,7 +82,6 @@ class CreatePoll extends Component {
       const { key } = dbRef.push(pollObject);
       this.setState({
         key,
-        errorMessage: "",
         name: "",
         question: "",
         optionA: "",
@@ -93,12 +91,7 @@ class CreatePoll extends Component {
       this.setState({
         isLinkShowing: true,
       });
-    } else {
-      // If form is empty, show custom error message
-      this.setState({
-        errorMessage: "Please fill in all inputs before submitting",
-      });
-    }
+    } 
   };
 
   handleReset = (e) => {
@@ -140,6 +133,7 @@ class CreatePoll extends Component {
                     id="name"
                     value={state.name}
                     onChange={this.handleChange}
+                    required
                   />
                   <label htmlFor="question"><span>Question</span>What do you wanna know?</label>
                   <input
@@ -147,6 +141,7 @@ class CreatePoll extends Component {
                     id="question"
                     value={state.question}
                     onChange={this.handleChange}
+                    required
                   />
                   <label htmlFor="optionA">
                     <span>Option A</span> What's the first choice?
@@ -156,6 +151,7 @@ class CreatePoll extends Component {
                     id="optionA"
                     value={state.optionA}
                     onChange={this.handleChange}
+                    required
                   />
                   <label htmlFor="optionB"><span>Option</span>Put the second choice here!</label>
                   <input
@@ -163,10 +159,10 @@ class CreatePoll extends Component {
                     id="optionB"
                     value={state.optionB}
                     onChange={this.handleChange}
+                    required
                   />
                   <button type="submit">I'm done!</button>
                 </form>
-                <p> {state.errorMessage} </p>
               </section>
             );
           } else if (state.isLinkShowing === true) {
