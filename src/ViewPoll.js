@@ -81,7 +81,7 @@ class ViewPoll extends Component {
     return (
       <main className="viewPoll">
         <section
-        // className={this.state.thankYouMessage === false ? "show" : "hide"}
+        className={this.state.thankYouMessage === false ? "show" : "hide"}
         >
           <form onSubmit={this.handleSubmit} className="viewPollForm">
             <h1> User Generated Polls </h1>
