@@ -102,34 +102,32 @@ class CreatePoll extends Component {
     });
 }
 
+
   render() {
     const state = this.state;
     const key = state.key;
     return (
       <main>
-        {" "}
         {(() => {
           if (state.isLinkShowing === false) {
             return (
               <section className="createPoll pageContainer">
-                <h2> Make a Poll! </h2>{" "}
+                <h2> Make a Poll! </h2>
                 <p>
-                  Use the form below to make your poll. It's not rocket science.
-                  Or is it? Only one way to find out - make a poll!
+                  Use the form below to make your poll!It 's not rocket science.
+                  Or is it ? Only one way to find out - make a poll!
                 </p>
                 <form
                   action="/"
                   onSubmit={this.handleSubmit}
-                  onReset={this.handleReset}
                   className="createPollForm"
                 >
-                  <label htmlFor="name"> <span>Name</span>Enter your name so your friends know who's poll it is</label>
+                  <label htmlFor="title"> title </label>
                   <input
                     type="text"
                     id="name"
                     value={state.name}
                     onChange={this.handleChange}
-                    required
                   />
                   <label htmlFor="question"> question </label>
                   <input
@@ -137,7 +135,6 @@ class CreatePoll extends Component {
                     id="question"
                     value={state.question}
                     onChange={this.handleChange}
-                    required
                   />
                   <label htmlFor="optionA"> option one </label>
                   <input
@@ -145,7 +142,6 @@ class CreatePoll extends Component {
                     id="optionA"
                     value={state.optionA}
                     onChange={this.handleChange}
-                    required
                   />
                   <label htmlFor="optionB"> option two </label>
                   <input
@@ -153,12 +149,8 @@ class CreatePoll extends Component {
                     id="optionB"
                     value={state.optionB}
                     onChange={this.handleChange}
-                    required
                   />
-                  <div className="buttonBox">
-                    <button type="submit" className="submitButton">I'm done!</button>
-                    <button type="reset" className="resetButton">Reset</button>
-                  </div>
+                  <button type="submit"> I 'm done!</button>
                 </form>
                 <p> {state.errorMessage} </p>
               </section>
@@ -166,19 +158,16 @@ class CreatePoll extends Component {
           } else if (state.isLinkShowing === true) {
             return (
               <div className="pageContainer">
-                <h2> Wow!You just made a poll! </h2>{" "}
+                <h2> Wow!You just made a poll! </h2>
                 <p>
                   We expected this, so we made a little chart of your poll 's
-                  stat 's just for you! We did this because we care.{" "}
-                </p>{" "}
-                <Link to={`/polls/${key}/analytics`}>
-                  {" "}
-                  Poll up your stats!{" "}
-                </Link>{" "}
+                  stat 's just for you! We did this because we care.
+                </p>
+                <Link to={`/polls/${key}/analytics`}>Poll up your stats!</Link>
               </div>
             );
           }
-        })()}{" "}
+        })()}
       </main>
     );
   }
