@@ -168,7 +168,7 @@ header a {
 .styleBlock {
     align-items: center;
     display: flex;
-    /* height: 28.3333vh; */
+    height: 28.3333vh;
     min-height: 150px;
     padding: 1em 0;
 }
@@ -184,6 +184,7 @@ header a {
 
 .copyWrapper p {
     width: 75%;
+    margin-bottom: 1.5em;
 }
 
 .styleBlock.block3 {
