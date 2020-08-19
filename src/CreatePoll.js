@@ -10,7 +10,7 @@ class CreatePoll extends Component {
     super();
     this.state = {
       key: "",
-      title: "",
+      name: "",
       question: "",
       optionA: "",
       optionB: "",
@@ -22,9 +22,9 @@ class CreatePoll extends Component {
   // Component Methods -----+
   handleChange = (e) => {
     switch (e.target.id) {
-      case "title":
+      case "name":
         this.setState({
-          title: e.target.value,
+          name: e.target.value,
         });
         break;
       case "question":
@@ -56,12 +56,12 @@ class CreatePoll extends Component {
     // If form is not empty, update state with from data and push it to firebase
     if (
       state.question !== "" &&
-      state.title !== "" &&
+      state.name !== "" &&
       state.OptionA !== "" &&
       state.optionB !== ""
     ) {
       const pollObject = {
-        title: state.title,
+        name: state.name,
         question: state.question,
         optionA: state.optionA,
         optionB: state.optionB,
@@ -72,7 +72,7 @@ class CreatePoll extends Component {
       this.setState({
         key,
         errorMessage: "",
-        title: "",
+        name: "",
         question: "",
         optionA: "",
         optionB: "",
@@ -88,6 +88,20 @@ class CreatePoll extends Component {
       });
     }
   };
+
+  handleReset = (e) => {
+    e.preventDefault();
+    this.setState({
+      key: "",
+      name: "",
+      question: "",
+      optionA: "",
+      optionB: "",
+      errorMessage: "",
+      isLinkShowing: false,
+    });
+}
+
 
   render() {
     const state = this.state;
@@ -111,8 +125,8 @@ class CreatePoll extends Component {
                   <label htmlFor="title"> title </label>
                   <input
                     type="text"
-                    id="title"
-                    value={state.title}
+                    id="name"
+                    value={state.name}
                     onChange={this.handleChange}
                   />
                   <label htmlFor="question"> question </label>
