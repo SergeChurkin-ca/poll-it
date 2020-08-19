@@ -16,7 +16,7 @@ class App extends Component {
       <Router>
         <Fragment>
           <Header />
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/anonymousVotingBooth" component={HomePage} />
           <Route exact path="/createpoll" component={CreatePoll} />
           <Route path="/polls/:pollKey/analytics" component={PollAnalytics} />
           <Route path="/polls/:pollKey/view" component={ViewPoll} />
