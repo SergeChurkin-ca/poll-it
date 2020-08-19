@@ -233,15 +233,30 @@ main:hover .toCreatePoll {
 /* ============================================ */
 
 
-/* Classes For Arman */
+/* styles for rendered message on poll creation form */
+.pollCreatedMessage {
+    /* background-color: lightcoral; */
+    border: 7px solid #2d0c30;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 10vh;
+}
 
+.pollCreatedMessage p {
+    margin-bottom: 40px;
+}
 
-/* .hide {
-  visibility: hidden;
-  position: absolute;
-  z-index: -10;
-  top: 0;
-} */
+.pollCreatedMessage h2 {
+    width: 100%;
+}
+
+.toAnalyticsLink {
+    padding: 10px;
+    background-color: #e27a05;
+    color: whitesmoke;
+    border: 3px solid #2d0c30;
+    border-radius: 10px;
+}
 
 .hide {
     display: none;

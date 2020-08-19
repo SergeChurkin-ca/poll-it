@@ -168,13 +168,13 @@ class CreatePoll extends Component {
             );
           } else if (state.isLinkShowing === true) {
             return (
-              <div className="pageContainer">
+              <div className="pageContainer pollCreatedMessage">
                 <h2>Wow! You just made a poll!</h2>
                 <p>
                   We expected this, so we made a little chart of your poll's
                   stat's just for you! We did this because we care.
                 </p>
-                <Link to={`/polls/${key}/analytics`}>Poll up your stats!</Link>
+                <Link to={`/polls/${key}/analytics`} className="toAnalyticsLink">Poll up your stats!</Link>
               </div>
             );
           }
