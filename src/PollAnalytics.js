@@ -39,7 +39,7 @@ class PollAnalytics extends Component {
           results with your friends and family with the click of a button!
         </p>
         <section className="analyticsInfo">
-          <h2>{poll.title}</h2>
+          <h2>{poll.name}'s poll</h2>
           <p className="pollQuestion">{poll.question}</p>
           <p> Option A: {poll.optionA}</p>
           <p> Option B: {poll.optionB}</p>

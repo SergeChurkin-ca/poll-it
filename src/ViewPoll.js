@@ -120,14 +120,14 @@ class ViewPoll extends Component {
   // Render JSX Method ----- +
   render() {
     const poll = this.state.poll;
+    console.log(this.state.isAnswered);
+    console.log(this.state.isStored);
     return (
       <main className="viewPoll">
-        <section
-        className={this.state.thankYouMessage === false ? "show" : "hide"}
-        >
+        <section className={this.state.isAnswered === false ? "show" : "hide"}>
           <form onSubmit={this.handleSubmit} className="viewPollForm">
             <h1> User Generated Polls </h1>
-            <h2>{poll.title}</h2>
+            <h2>{poll.name}'s poll</h2>
             <h3>{poll.question}</h3>
             <p>{poll.optionA}?</p>
             <p>{poll.optionB}?</p>

@@ -14,7 +14,7 @@ class CreatePoll extends Component {
       question: "",
       optionA: "",
       optionB: "",
-      errorMessage: "",
+      // errorMessage: "",
       isLinkShowing: false,
     };
   }
@@ -47,21 +47,33 @@ class CreatePoll extends Component {
     }
   };
 
+  // Takes a string as an argument, if string does not have a "?" append it to the end
+  isQuestion = (string) => {
+    const lastIndex = string.length - 1;
+    if (string.charAt(lastIndex) !== "?") {
+      return string.concat("?");
+    } else {
+      return string;
+    }
+  };
+
   //
   handleSubmit = (event) => {
     event.preventDefault();
     const dbRef = firebase.database().ref();
     const state = this.state;
+    const question = this.isQuestion(state.question);
 
     // If form is not empty, update state with from data and push it to firebase
     if (
       state.question !== "" &&
-      state.title !== "" &&
+      state.name !== "" &&
       state.OptionA !== "" &&
       state.optionB !== ""
     ) {
       const pollObject = {
-        title: state.title,
+
+        name: state.name,
         question: state.question,
         optionA: state.optionA,
         optionB: state.optionB,
@@ -72,7 +84,7 @@ class CreatePoll extends Component {
       this.setState({
         key,
         errorMessage: "",
-        title: "",
+        name: "",
         question: "",
         optionA: "",
         optionB: "",
@@ -93,7 +105,7 @@ class CreatePoll extends Component {
     e.preventDefault();
     this.setState({
       key: "",
-      title: "",
+      name: "",
       question: "",
       optionA: "",
       optionB: "",
@@ -102,25 +114,24 @@ class CreatePoll extends Component {
     });
 }
 
+
   render() {
     const state = this.state;
     const key = state.key;
     return (
       <main>
-        {" "}
         {(() => {
           if (state.isLinkShowing === false) {
             return (
               <section className="createPoll pageContainer">
-                <h2> Make a Poll! </h2>{" "}
+                <h2> Make a Poll! </h2>
                 <p>
-                  Use the form below to make your poll. It's not rocket science.
-                  Or is it? Only one way to find out - make a poll!
+                  Use the form below to make your poll!It 's not rocket science.
+                  Or is it ? Only one way to find out - make a poll!
                 </p>
                 <form
                   action="/"
                   onSubmit={this.handleSubmit}
-                  onReset={this.handleReset}
                   className="createPollForm"
                 >
                   <label htmlFor="name"> <span>Name</span>Tell us who you are!</label>
@@ -129,7 +140,6 @@ class CreatePoll extends Component {
                     id="name"
                     value={state.name}
                     onChange={this.handleChange}
-                    required
                   />
                   <label htmlFor="question"><span>Question</span>What do you wanna know?</label>
                   <input
@@ -137,7 +147,6 @@ class CreatePoll extends Component {
                     id="question"
                     value={state.question}
                     onChange={this.handleChange}
-                    required
                   />
                   <label htmlFor="optionA">
                     <span>Option A</span> What's the first choice?
@@ -147,7 +156,6 @@ class CreatePoll extends Component {
                     id="optionA"
                     value={state.optionA}
                     onChange={this.handleChange}
-                    required
                   />
                   <label htmlFor="optionB"><span>Option</span>Put the second choice here!</label>
                   <input
@@ -155,12 +163,8 @@ class CreatePoll extends Component {
                     id="optionB"
                     value={state.optionB}
                     onChange={this.handleChange}
-                    required
                   />
-                  <div className="buttonBox">
-                    <button type="submit" className="submitButton">I'm done!</button>
-                    <button type="reset" className="resetButton">Reset</button>
-                  </div>
+                  <button type="submit">I'm done!</button>
                 </form>
                 <p> {state.errorMessage} </p>
               </section>
@@ -168,19 +172,16 @@ class CreatePoll extends Component {
           } else if (state.isLinkShowing === true) {
             return (
               <div className="pageContainer">
-                <h2> Wow!You just made a poll! </h2>{" "}
+                <h2> Wow!You just made a poll! </h2>
                 <p>
                   We expected this, so we made a little chart of your poll 's
-                  stat 's just for you! We did this because we care.{" "}
-                </p>{" "}
-                <Link to={`/polls/${key}/analytics`}>
-                  {" "}
-                  Poll up your stats!{" "}
-                </Link>{" "}
+                  stat 's just for you! We did this because we care.
+                </p>
+                <Link to={`/polls/${key}/analytics`}>Poll up your stats!</Link>
               </div>
             );
           }
-        })()}{" "}
+        })()}
       </main>
     );
   }
