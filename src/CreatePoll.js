@@ -183,7 +183,11 @@ class CreatePoll extends Component {
                 We expected this, so we made a little chart of your poll's
                 stat's just for you! We did this because we care.
               </p>
-              <Link to={`/polls/${key}/analytics`} className="button">
+              <Link
+                to={`/polls/${key}/analytics`}
+                className="button"
+                tabIndex="0"
+              >
                 Poll up your stats!
               </Link>
             </div>

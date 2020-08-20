@@ -62,11 +62,11 @@ class PollAnalytics extends Component {
           </div>
           <p>Need votes? Share your poll with the link below!</p>
           <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/view`}</p>
-          <Link className="button" to={`/polls/${key}/view`}>
+          <Link className="button" to={`/polls/${key}/view`} tabIndex="0">
             Share your poll!
           </Link>
           <p>Ready to share your results? Send the link below!</p>
-          <Link className="button" to={`/polls/${key}/results`}>
+          <Link className="button" to={`/polls/${key}/results`} tabIndex="0">
             Share your Results!
           </Link>
           <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/view`}</p>

@@ -372,9 +372,9 @@ header {
   font-family: "Montserrat", sans-serif;
 }
 
-.header a:hover,
-.header a:focus {
-  transform: scale(1.02);
+.header .logo:focus,
+.header .button:focus {
+  outline: 3px solid #2d0c30;
 }
 
 .header .logo {

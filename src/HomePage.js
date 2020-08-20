@@ -60,7 +60,7 @@ class CreatePoll extends Component {
           <div className="copyWrapper">
             <h3>Create a Poll</h3>
             <p>Take me to the Poll Maker!</p>
-            <Link to="/createpoll" className="button">
+            <Link to="/createpoll" className="button" tabIndex="0">
               Create
             </Link>
           </div>
