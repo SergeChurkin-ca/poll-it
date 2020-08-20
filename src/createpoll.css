@@ -319,7 +319,7 @@ header a {
 
 .createPoll .copyWrapper {
     float: left;
-    width: 25%;
+    width: 40%;
     padding-left: 50px;
     margin: 20px 0;
 }
@@ -437,6 +437,12 @@ input:focus-within {
         padding: 10px 0;
         margin: 10px 0;
         max-width: 800px;
+    }
+    .createPoll .copyWrapper {
+        width: 60%;
+    }
+    .createPollForm .copyWrapper {
+        width: 80%;
     }
     .createPollForm label {
         margin: 10px 0;
