@@ -133,4 +133,14 @@ p.countNum {
     font-size: 1.4rem;
     word-wrap: break-word;
   }
+  .analyticsInfo {
+    padding: 10px;
+    width: 98%;
+  }
+}
+
+@media (max-width:400px) {
+  .analyticsInfo .usersPollLink {
+    font-size: 1.1rem;
+  }
 }
