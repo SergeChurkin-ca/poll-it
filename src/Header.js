@@ -8,7 +8,9 @@ const Header = () => {
         <Link to="/anonymousVotingBooth">
           <p class="logo">Poll it Together</p>
         </Link>
-        <Link to="/createpoll">Create a Poll</Link>
+        <Link to="/createpoll" class="createLink">
+          Create a Poll
+        </Link>
       </div>
     </header>
   );

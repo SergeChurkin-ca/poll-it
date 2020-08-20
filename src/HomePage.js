@@ -13,6 +13,9 @@ class CreatePoll extends Component {
           <div className="copyContainer">
             <div className="copyWrapper">
               <h1>Create Polls & Share with Your Friends</h1>
+              <Link to="/createpoll" className="button">
+                Create Now!
+              </Link>
             </div>
           </div>
         </div>
@@ -54,11 +57,13 @@ class CreatePoll extends Component {
           </div>
         </div>
         <div className="toCreatePoll">
-          <h3>Create a Poll</h3>
-          <p>Take me to the Poll Maker!</p>
-          <Link to="/createpoll" className="button">
-            Create
-          </Link>
+          <div className="copyWrapper">
+            <h3>Create a Poll</h3>
+            <p>Take me to the Poll Maker!</p>
+            <Link to="/createpoll" className="button">
+              Create
+            </Link>
+          </div>
         </div>
       </main>
     );
