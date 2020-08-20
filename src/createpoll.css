@@ -1,4 +1,3 @@
-
 html {
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
@@ -265,6 +264,7 @@ html {
     overflow: hidden;
 }
 
+
 /* === HEADER COMPONENT === */
 
 header {
@@ -290,8 +290,8 @@ header a {
 /* === CREATE POLL COMPONENT === */
 
 .createPollMain {
-  background: whitesmoke;
-  position: relative;
+    background: whitesmoke;
+    position: relative;
 }
 
 .createPoll {
@@ -320,7 +320,7 @@ header a {
 
 .createPoll .copyWrapper {
     float: left;
-    width: 25%;
+    width: 40%;
     padding-left: 50px;
     margin: 20px 0;
 }
@@ -426,44 +426,53 @@ input:focus-within {
     outline: none;
 }
 
+
 /*  === POLL MODAL === */
 
 .pollModalWrapper {
-  background: rgba(45, 12, 48, 0.7);
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
+    background: rgba(45, 12, 48, 0.7);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
 .pollModal {
-  background: whitesmoke;
-  border: 7px solid #2d0c30;
-  border-radius: 15px;
-  padding: 30px;
-  margin: 10vh auto;
-  max-width: 600px;
+    background: whitesmoke;
+    border: 7px solid #2d0c30;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 10vh auto;
+    max-width: 600px;
 }
 
 .pollModal p {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .pollModal h2 {
-  width: 100%;
+    width: 100%;
 }
+
 
 /* === CREATE POLL MEDIA QUERIES === */
 
+
 /* --- Portrait tablet and small desktops --- */
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     .createPoll p,
     .createPoll h2 {
         padding: 10px 0;
         margin: 10px 0;
         max-width: 800px;
+    }
+    .createPoll .copyWrapper {
+        width: 60%;
+    }
+    .createPollForm .copyWrapper {
+        width: 90%;
     }
     .createPollForm label {
         margin: 10px 0;
@@ -473,8 +482,7 @@ input:focus-within {
 
 /* --- Landscape phone to portrait tablet --- */
 
-
-@media (max-width: 720px) {
+@media (max-width: 780px) {
     header h1 {
         font-size: 35px;
     }
@@ -489,7 +497,7 @@ input:focus-within {
     }
     .createPollForm .copyWrapper {
         margin: 15px auto;
-        width: 90%;
+        width: 100%;
     }
     .createPollForm input {
         font-size: 1.8rem;
@@ -510,7 +518,6 @@ input:focus-within {
 
 
 /*  --- Landscape phones and down --- */
-
 
 @media (max-width: 320px) {
     header h1 {
