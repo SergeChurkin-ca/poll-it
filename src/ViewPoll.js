@@ -128,34 +128,29 @@ class ViewPoll extends Component {
           <form onSubmit={this.handleSubmit} className="viewPollForm">
             <h2>{poll.name}'s poll</h2>
             <h3>{poll.question}</h3>
-            <div className="optionNames">
-              <div>
-                {/* <p>{poll.optionA}?</p> */}
-                <label htmlFor="optionA">{poll.optionA}
-                  <input
-                    type="radio"
-                    name="options"
-                    id="optionA"
-                    onChange={this.handleChange}
-                    value={poll.optionA}
-                    required
-                  ></input>
-                </label>
-              </div>
-              <div>
-                {/* <p>{poll.optionB}?</p> */}
-                <label htmlFor="optionB">
+            <div className="optionWrapper" ariarole="radio-group">
+              <label htmlFor="optionA">
+                {poll.optionA}
+                <input
+                  type="radio"
+                  name="options"
+                  id="optionA"
+                  onChange={this.handleChange}
+                  value={poll.optionA}
+                  required
+                ></input>
+              </label>
+              <label htmlFor="optionB">
                 {poll.optionB}
-                  <input
-                    type="radio"
-                    name="options"
-                    id="optionB"
-                    onChange={this.handleChange}
-                    value={poll.optionB}
-                    required
-                  ></input>
-                </label>
-              </div>
+                <input
+                  type="radio"
+                  name="options"
+                  id="optionB"
+                  onChange={this.handleChange}
+                  value={poll.optionB}
+                  required
+                ></input>
+              </label>
             </div>
             <button type="submit">Answer</button>
           </form>
