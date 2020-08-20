@@ -154,6 +154,7 @@ class CreatePoll extends Component {
                   value={state.optionA}
                   onChange={this.handleChange}
                   required
+                  maxLength="25 characters"
                 />
                 <label htmlFor="optionB">
                   <span>Option B</span>Put the second choice here!
@@ -164,6 +165,7 @@ class CreatePoll extends Component {
                   value={state.optionB}
                   onChange={this.handleChange}
                   required
+                  maxLength="25 characters"
                 />
                 <div className="buttonContainer">
                   <button type="submit">I'm done!</button>
