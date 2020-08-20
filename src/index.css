@@ -20,11 +20,11 @@ body {
 .footer {
   width: 100%;
   text-align: center;
-  position: fixed;
-  padding: 10px 0;
+  /* position: fixed; */
+  padding: 20px 0;
   background-color: #2d0c30;
   color: whitesmoke;
-  bottom: 0;
+  /* bottom: 0; */
 }
 
 /* --- Typography --- */
@@ -203,33 +203,7 @@ main:hover .toCreatePoll {
   padding: 5px 0;
 }
 
-/* ============================================ */
-
-/* styles for rendered message on poll creation form */
-
-.pollCreatedMessage {
-  /* background-color: lightcoral; */
-  border: 7px solid #2d0c30;
-  border-radius: 15px;
-  padding: 30px;
-  margin-top: 10vh;
-}
-
-.pollCreatedMessage p {
-  margin-bottom: 40px;
-}
-
-.pollCreatedMessage h2 {
-  width: 100%;
-}
-
-.toAnalyticsLink {
-  padding: 10px;
-  background-color: #e27a05;
-  color: whitesmoke;
-  border: 3px solid #2d0c30;
-  border-radius: 10px;
-}
+/* ============================================ *
 
 /* === MEDIA queries home page  === */
 

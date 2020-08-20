@@ -15,8 +15,8 @@ class ViewPoll extends Component {
       userSelection: "",
       optionACount: 0,
       optionBCount: 0,
-      isAnswered: false,
-      isStored: false,
+      isPollAnswered: false,
+      isPollStored: false,
     };
   }
 
@@ -41,6 +41,8 @@ class ViewPoll extends Component {
     });
   };
 
+  handleSelected = () => {};
+
   // Takes radio selection from state (correspondomg with the option property in our firebase object) as an argument. The current poll object and user selection is targeted in the firebase database and it's count is incresed by one ---
   sendCount = (selection) => {
     const key = this.props.match.params.pollKey;
@@ -52,22 +54,20 @@ class ViewPoll extends Component {
     });
   };
 
-  //
+  // Takes a key as an argument and stores it in a comma separated string in local sotrage
   updateStorage = (key) => {
     const answeredPollsStorage = window.localStorage.getItem(localStorageItem);
     const answeredPollsArray = [];
-
     if (answeredPollsStorage) {
       answeredPollsArray.push(...answeredPollsStorage.split(","));
     }
-
     answeredPollsArray.push(key);
     window.localStorage.setItem(localStorageItem, answeredPollsArray.join(","));
   };
 
+  // Takes a key and checks the local storage string to see if that key is in storage and returns a boolean
   checkIsAnswered = (key) => {
     const answeredPollStorage = window.localStorage.getItem(localStorageItem);
-
     if (answeredPollStorage) {
       return answeredPollStorage.split(",").some((storedKey) => {
         return storedKey === key;
@@ -88,7 +88,7 @@ class ViewPoll extends Component {
     // Checks if poll has been answered. If no, stops sumbit function
     if (this.checkIsAnswered(key)) {
       this.setState({
-        isStored: true,
+        isPollStored: true,
       });
       return;
     }
@@ -98,7 +98,7 @@ class ViewPoll extends Component {
 
     // Displays messge to user that poll has been completed
     this.setState({
-      isAnswered: true,
+      isPollAnswered: true,
     });
 
     // Updates state count depending on which option the user has selected
@@ -120,49 +120,71 @@ class ViewPoll extends Component {
   // Render JSX Method ----- +
   render() {
     const poll = this.state.poll;
-    console.log(this.state.isAnswered);
-    console.log(this.state.isStored);
+    console.log(this.state.isPollAnswered);
+    console.log(this.state.isPollStored);
     return (
       <main className="viewPoll">
-        <section className={this.state.isAnswered === false ? "show" : "hide"}>
+        <section
+          className={this.state.isPollAnswered === false ? "show" : "hide"}
+        >
           <form onSubmit={this.handleSubmit} className="viewPollForm">
-            <h1>User Generated Polls</h1>
             <h2>{poll.name}'s poll</h2>
             <h3>{poll.question}</h3>
-            <p>{poll.optionA}?</p>
-            <p>{poll.optionB}?</p>
-            <label htmlFor="optionA">Option A
-              <input
-                type="radio"
-                name="options"
-                id="optionA"
-                onChange={this.handleChange}
-                value={poll.optionA}
-                required
-              ></input>
-            </label>
-            <label htmlFor="optionB">
-              Option B
-              <input
-                type="radio"
-                name="options"
-                id="optionB"
-                onChange={this.handleChange}
-                value={poll.optionB}
-                required
-              ></input>
-            </label>
+            <div className="optionWrapper" ariarole="radio-group">
+              <label
+                htmlFor="optionA"
+                onClick={this.handleSelect}
+                className={
+                  this.state.userSelection === "optionA"
+                    ? "selected"
+                    : undefined
+                }
+              >
+                {poll.optionA}
+                <input
+                  type="radio"
+                  name="options"
+                  id="optionA"
+                  onChange={this.handleChange}
+                  value={poll.optionA}
+                  required
+                ></input>
+              </label>
+              <label
+                htmlFor="optionB"
+                className={
+                  this.state.userSelection === "optionB"
+                    ? "selected"
+                    : undefined
+                }
+              >
+                {poll.optionB}
+                <input
+                  type="radio"
+                  name="options"
+                  id="optionB"
+                  onChange={this.handleChange}
+                  value={poll.optionB}
+                  required
+                ></input>
+              </label>
+            </div>
             <button type="submit">Answer</button>
           </form>
         </section>
-        <div className={this.state.isAnswered === true ? "show" : "hide"}>
-          <h2>Thank you for your submission!</h2>
+        <div className={this.state.isPollAnswered === true ? "show" : "hide"}>
+          <p className="userMessage">
+            Thank you for your submission!{" "}
+            <span role="img" aria-labelledby="wink"></span>
+          </p>
         </div>
-        <div className={this.state.isStored === true ? "show" : "hide"}>
-          <h2>
-            DON'T FUCKING SUBMIT AGAIN, YOU ANIMAL! (LOL GUYS, CHILL WE WILL
-            CHANGE THIS COPY LATER)
-          </h2>
+        <div className={this.state.isPollStored === true ? "show" : "hide"}>
+          <p className="userMessage">
+            Nice try. You can only vote once per poll{" "}
+            <span role="img" aria-labelledby="wink">
+              😉
+            </span>
+          </p>
         </div>
       </main>
     );
