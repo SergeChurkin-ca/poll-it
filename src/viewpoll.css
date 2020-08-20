@@ -292,6 +292,7 @@ header a {
 .viewPoll {
   background: white;
   padding: 10vh;
+  height: 85vh;
 }
 
 .viewPollForm {
