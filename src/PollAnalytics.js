@@ -73,11 +73,17 @@ class PollAnalytics extends Component {
             <p>
               Need <span>votes</span>? Share your poll with the link below!
             </p>
-            <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/view`}</p>
+            <p
+              className="usersPollLink"
+              tabIndex="0"
+            >{`https://spring2anonymouspoll.github.io/polls/${key}/view`}</p>
             <p>
               Ready to share your <span>results</span>? Send this link.
             </p>
-            <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/results`}</p>
+            <p
+              className="usersPollLink"
+              tabIndex="0"
+            >{`https://spring2anonymouspoll.github.io/polls/${key}/results`}</p>
           </section>
         </div>
       </main>
