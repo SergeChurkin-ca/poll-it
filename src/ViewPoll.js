@@ -126,32 +126,37 @@ class ViewPoll extends Component {
       <main className="viewPoll">
         <section className={this.state.isAnswered === false ? "show" : "hide"}>
           <form onSubmit={this.handleSubmit} className="viewPollForm">
-            <h1>User Generated Polls</h1>
             <h2>{poll.name}'s poll</h2>
             <h3>{poll.question}</h3>
-            <p>{poll.optionA}?</p>
-            <p>{poll.optionB}?</p>
-            <label htmlFor="optionA">Option A
-              <input
-                type="radio"
-                name="options"
-                id="optionA"
-                onChange={this.handleChange}
-                value={poll.optionA}
-                required
-              ></input>
-            </label>
-            <label htmlFor="optionB">
-              Option B
-              <input
-                type="radio"
-                name="options"
-                id="optionB"
-                onChange={this.handleChange}
-                value={poll.optionB}
-                required
-              ></input>
-            </label>
+            <div className="optionNames">
+              <div>
+                {/* <p>{poll.optionA}?</p> */}
+                <label htmlFor="optionA">{poll.optionA}
+                  <input
+                    type="radio"
+                    name="options"
+                    id="optionA"
+                    onChange={this.handleChange}
+                    value={poll.optionA}
+                    required
+                  ></input>
+                </label>
+              </div>
+              <div>
+                {/* <p>{poll.optionB}?</p> */}
+                <label htmlFor="optionB">
+                {poll.optionB}
+                  <input
+                    type="radio"
+                    name="options"
+                    id="optionB"
+                    onChange={this.handleChange}
+                    value={poll.optionB}
+                    required
+                  ></input>
+                </label>
+              </div>
+            </div>
             <button type="submit">Answer</button>
           </form>
         </section>
