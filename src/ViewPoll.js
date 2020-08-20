@@ -15,8 +15,8 @@ class ViewPoll extends Component {
       userSelection: "",
       optionACount: 0,
       optionBCount: 0,
-      isAnswered: false,
-      isStored: false,
+      isPollAnswered: false,
+      isPollStored: false,
     };
   }
 
@@ -41,6 +41,8 @@ class ViewPoll extends Component {
     });
   };
 
+  handleSelected = () => {};
+
   // Takes radio selection from state (correspondomg with the option property in our firebase object) as an argument. The current poll object and user selection is targeted in the firebase database and it's count is incresed by one ---
   sendCount = (selection) => {
     const key = this.props.match.params.pollKey;
@@ -52,22 +54,20 @@ class ViewPoll extends Component {
     });
   };
 
-  //
+  // Takes a key as an argument and stores it in a comma separated string in local sotrage
   updateStorage = (key) => {
     const answeredPollsStorage = window.localStorage.getItem(localStorageItem);
     const answeredPollsArray = [];
-
     if (answeredPollsStorage) {
       answeredPollsArray.push(...answeredPollsStorage.split(","));
     }
-
     answeredPollsArray.push(key);
     window.localStorage.setItem(localStorageItem, answeredPollsArray.join(","));
   };
 
+  // Takes a key and checks the local storage string to see if that key is in storage and returns a boolean
   checkIsAnswered = (key) => {
     const answeredPollStorage = window.localStorage.getItem(localStorageItem);
-
     if (answeredPollStorage) {
       return answeredPollStorage.split(",").some((storedKey) => {
         return storedKey === key;
@@ -129,7 +129,15 @@ class ViewPoll extends Component {
             <h2>{poll.name}'s poll</h2>
             <h3>{poll.question}</h3>
             <div className="optionWrapper" ariarole="radio-group">
-              <label htmlFor="optionA">
+              <label
+                htmlFor="optionA"
+                onClick={this.handleSelect}
+                className={
+                  this.state.userSelection === "optionA"
+                    ? "selected"
+                    : undefined
+                }
+              >
                 {poll.optionA}
                 <input
                   type="radio"
@@ -140,7 +148,14 @@ class ViewPoll extends Component {
                   required
                 ></input>
               </label>
-              <label htmlFor="optionB">
+              <label
+                htmlFor="optionB"
+                className={
+                  this.state.userSelection === "optionB"
+                    ? "selected"
+                    : undefined
+                }
+              >
                 {poll.optionB}
                 <input
                   type="radio"

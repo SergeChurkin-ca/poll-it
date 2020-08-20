@@ -331,11 +331,13 @@ header a {
   display: inline-block;
   word-wrap: break-word;
   width: 47%;
+  transition: background 200ms, color 200ms;
 }
 
 .viewPollForm label:focus,
 .viewPollForm label:focus-within,
-.viewPollForm label:hover {
+.viewPollForm label:hover,
+.viewPollForm label.selected {
   cursor: pointer;
   background: #e27a05;
   color: #f5f5f5;
