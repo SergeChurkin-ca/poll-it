@@ -20,11 +20,11 @@ body {
 .footer {
   width: 100%;
   text-align: center;
-  position: fixed;
-  padding: 10px 0;
+  /* position: fixed; */
+  padding: 30px 0;
   background-color: #2d0c30;
   color: whitesmoke;
-  bottom: 0;
+  /* bottom: 0; */
 }
 
 /* --- Typography --- */
