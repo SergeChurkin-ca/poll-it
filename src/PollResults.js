@@ -1,11 +1,7 @@
-// Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
-import { Link } from "react-router-dom";
-import "./analytics.css";
 
-// Component ----- +
-class PollAnalytics extends Component {
+class PollResults extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,7 +9,6 @@ class PollAnalytics extends Component {
     };
   }
 
-  // Takes the router link variable and passes it as an argument in the ref firebase method to retrieve
   componentDidMount() {
     const key = this.props.match.params.pollKey;
     firebase
@@ -28,18 +23,12 @@ class PollAnalytics extends Component {
 
   // Render JSX  ----- +
   render() {
-    const key = this.props.match.params.pollKey;
     const poll = this.state.poll;
     return (
       <main className="pageContainer analytics">
-        <h2>Your Poll Analytics!</h2>
-        <p>
-          As poll creater, you can spy on the anonymous votes before anyone
-          else. Whenever you are ready to make your research public, reveal the
-          results with your friends and family with the click of a button!
-        </p>
+        <h2>{poll.name}'s Poll Results are In!!</h2>
         <section className="analyticsInfo">
-          <h2>{poll.name}'s Poll Analytics</h2>
+          <h2>{poll.name}'s poll Results</h2>
           <div className="copyWrapper">
             <p className="pollQuestion">{poll.question}</p>
             <p> Option A: {poll.optionA}</p>
@@ -61,20 +50,10 @@ class PollAnalytics extends Component {
               </p>
             </div>
           </div>
-          <p>Need votes? Share your poll with the link below!</p>
-          <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/view`}</p>
-          <Link className="button" to={`/polls/${key}/view`}>
-            Share your poll!
-          </Link>
-          <p>Ready to share your results? Send the link below!</p>
-          <Link className="button" to={`/polls/${key}/results`}>
-            Share your Results!
-          </Link>
-          <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/view`}</p>
         </section>
       </main>
     );
   }
 }
 
-export default PollAnalytics;
+export default PollResults;
