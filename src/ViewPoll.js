@@ -88,7 +88,7 @@ class ViewPoll extends Component {
     // Checks if poll has been answered. If no, stops sumbit function
     if (this.checkIsAnswered(key)) {
       this.setState({
-        isStored: true,
+        isPollStored: true,
       });
       return;
     }
@@ -98,7 +98,7 @@ class ViewPoll extends Component {
 
     // Displays messge to user that poll has been completed
     this.setState({
-      isAnswered: true,
+      isPollAnswered: true,
     });
 
     // Updates state count depending on which option the user has selected
@@ -120,11 +120,13 @@ class ViewPoll extends Component {
   // Render JSX Method ----- +
   render() {
     const poll = this.state.poll;
-    console.log(this.state.isAnswered);
-    console.log(this.state.isStored);
+    console.log(this.state.isPollAnswered);
+    console.log(this.state.isPollStored);
     return (
       <main className="viewPoll">
-        <section className={this.state.isAnswered === false ? "show" : "hide"}>
+        <section
+          className={this.state.isPollAnswered === false ? "show" : "hide"}
+        >
           <form onSubmit={this.handleSubmit} className="viewPollForm">
             <h2>{poll.name}'s poll</h2>
             <h3>{poll.question}</h3>
@@ -170,14 +172,19 @@ class ViewPoll extends Component {
             <button type="submit">Answer</button>
           </form>
         </section>
-        <div className={this.state.isAnswered === true ? "show" : "hide"}>
-          <h2>Thank you for your submission!</h2>
+        <div className={this.state.isPollAnswered === true ? "show" : "hide"}>
+          <p className="userMessage">
+            Thank you for your submission!{" "}
+            <span role="img" aria-labelledby="wink"></span>
+          </p>
         </div>
-        <div className={this.state.isStored === true ? "show" : "hide"}>
-          <h2>
-            DON'T FUCKING SUBMIT AGAIN, YOU ANIMAL! (LOL GUYS, CHILL WE WILL
-            CHANGE THIS COPY LATER)
-          </h2>
+        <div className={this.state.isPollStored === true ? "show" : "hide"}>
+          <p className="userMessage">
+            Nice try. You can only vote once per poll{" "}
+            <span role="img" aria-labelledby="wink">
+              😉
+            </span>
+          </p>
         </div>
       </main>
     );
