@@ -13,7 +13,7 @@ class CreatePoll extends Component {
           <div className="copyContainer">
             <div className="copyWrapper">
               <h1>Create Polls & Share with Your Friends</h1>
-              <Link to="/createpoll" className="button">
+              <Link to="/createpoll" className="button" tabIndex="0">
                 Create Now!
               </Link>
             </div>

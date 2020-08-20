@@ -103,7 +103,7 @@ class CreatePoll extends Component {
         {(state.display === "form" || state.display === "modal") && (
           <section className="createPoll">
             <div className="copyWrapper">
-              <h2>Make a Poll!</h2>
+              <h1>Let's get right to it</h1>
               <p>
                 Use the form below to make your poll! It 's not rocket science.
                 Or is it ? Only one way to find out - make a poll!
