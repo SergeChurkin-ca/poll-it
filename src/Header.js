@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './createpoll.css'
 
 const Header = () => {
   return (
     <header>
       <div className="header">
-        <Link to="/anonymousVotingBooth">
-          <h1>Poll it Together</h1>
+        <Link to="/anonymousVotingBooth" tabIndex="0">
+          <p class="logo">Poll it Together</p>
         </Link>
-        <Link to="/createpoll">Create a Poll</Link>
+        <Link to="/createpoll" class="createLink" tabIndex="0">
+          Create a Poll
+        </Link>
       </div>
     </header>
   );

@@ -1,6 +1,9 @@
+// === POLL RESULTS ===
+// Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
 
+// Component ----- +
 class PollResults extends Component {
   constructor() {
     super();
