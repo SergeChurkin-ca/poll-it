@@ -117,3 +117,21 @@ p.countNum {
   font-family: "Montserrat", sans-serif;
   font-size: calc(25px + (70 - 25) * ((100vw - 300px) / (1600 - 300)));
 }
+
+/* styles for users unique poll link on analytics page */
+.analyticsInfo .usersPollLink {
+  font-size: 1.8rem;
+  border: 2px solid #2d0c30;
+  padding: 7px;
+  padding-left: 15px;
+  border-radius: 10px;
+  background-color: rgb(228, 225, 225);
+  width: fit-content;
+}
+
+@media (max-width:600px) {
+  .analyticsInfo .usersPollLink {
+    font-size: 1.4rem;
+    word-wrap: break-word;
+  }
+}

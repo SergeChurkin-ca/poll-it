@@ -1,3 +1,4 @@
+
 html {
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
@@ -264,7 +265,6 @@ html {
     overflow: hidden;
 }
 
-
 /* === HEADER COMPONENT === */
 
 header {
@@ -290,7 +290,8 @@ header a {
 /* === CREATE POLL COMPONENT === */
 
 .createPollMain {
-    background: whitesmoke;
+  background: whitesmoke;
+  position: relative;
 }
 
 .createPoll {
@@ -425,11 +426,37 @@ input:focus-within {
     outline: none;
 }
 
+/*  === POLL MODAL === */
 
-/*******************************/
+.pollModalWrapper {
+  background: rgba(45, 12, 48, 0.7);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
 
+.pollModal {
+  background: whitesmoke;
+  border: 7px solid #2d0c30;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 10vh auto;
+  max-width: 600px;
+}
 
-/* Portrait tablet and small desktops */
+.pollModal p {
+  margin-bottom: 40px;
+}
+
+.pollModal h2 {
+  width: 100%;
+}
+
+/* === CREATE POLL MEDIA QUERIES === */
+
+/* --- Portrait tablet and small desktops --- */
 
 @media (max-width: 1000px) {
     .createPoll p,
@@ -444,7 +471,8 @@ input:focus-within {
 }
 
 
-/* Landscape phone to portrait tablet */
+/* --- Landscape phone to portrait tablet --- */
+
 
 @media (max-width: 720px) {
     header h1 {
@@ -481,7 +509,8 @@ input:focus-within {
 }
 
 
-/* Landscape phones and down */
+/*  --- Landscape phones and down --- */
+
 
 @media (max-width: 320px) {
     header h1 {
