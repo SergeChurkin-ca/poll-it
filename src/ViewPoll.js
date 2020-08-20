@@ -1,7 +1,6 @@
 // Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
-import "./viewpoll.css";
 
 // Module Variables ---- +
 const localStorageItem = "answeredPolls";

@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
 import { Link } from "react-router-dom";
-import "./analytics.css";
 
 // Component ----- +
 class PollAnalytics extends Component {

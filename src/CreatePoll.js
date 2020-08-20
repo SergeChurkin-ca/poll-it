@@ -1,8 +1,9 @@
+// === CREATE POLL ===
+
 // Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
 import { Link } from "react-router-dom";
-import "./createpoll.css";
 
 // Component ----- +
 class CreatePoll extends Component {
@@ -56,58 +57,49 @@ class CreatePoll extends Component {
     }
   };
 
-  //
+  //Creates a an object and pushes that object to firebase
   handleSubmit = (event) => {
     event.preventDefault();
     const dbRef = firebase.database().ref();
     const state = this.state;
     const question = this.isQuestion(state.question);
+    const pollObject = {
+      name: state.name,
+      question,
+      optionA: state.optionA,
+      optionB: state.optionB,
+      optionACount: 0,
+      optionBCount: 0,
+    };
 
-    // If form is not empty, update state with from data and push it to firebase
-    if (
-      state.question !== "" &&
-      state.name !== "" &&
-      state.OptionA !== "" &&
-      state.optionB !== ""
-    ) {
-      const pollObject = {
-        name: state.name,
-        question,
-        optionA: state.optionA,
-        optionB: state.optionB,
-        optionACount: 0,
-        optionBCount: 0,
-      };
-      const { key } = dbRef.push(pollObject);
-      this.setState({
-        key,
-        name: "",
-        question: "",
-        optionA: "",
-        optionB: "",
-        display: "modal",
-      });
-    }
+    // Pushes the new poll object to firebase and returns a key, stored in a destructured variable
+    const { key } = dbRef.push(pollObject);
+
+    // We are getting fancy and storing the value of key to key, and chanding display to modal
+    this.setState({
+      key,
+      display: "modal",
+    });
+
+    this.handleReset();
   };
 
-  handleReset = (e) => {
-    e.preventDefault();
+  // Resets the form inputs in state
+  handleReset = () => {
     this.setState({
-      key: "",
       name: "",
       question: "",
       optionA: "",
       optionB: "",
-      display: "modal",
     });
   };
 
   render() {
     const state = this.state;
     const key = state.key;
-    console.log("display:", this.state.display);
     return (
       <main className="createPollMain">
+        {/* Using a short curcuit we display the page when display is set to "form" or "modal" in state*/}
         {(state.display === "form" || state.display === "modal") && (
           <section className="createPoll">
             <div className="copyWrapper">
@@ -169,7 +161,11 @@ class CreatePoll extends Component {
                 />
                 <div className="buttonContainer">
                   <button type="submit">I'm done!</button>
-                  <button type="reset" className="resetButton">
+                  <button
+                    type="button"
+                    className="resetButton"
+                    onClick={this.handleReset}
+                  >
                     Reset
                   </button>
                 </div>
@@ -178,6 +174,7 @@ class CreatePoll extends Component {
           </section>
         )}
 
+        {/* Conditionally displays a pop up modal to continue through user path */}
         {state.display === "modal" && (
           <div className="pollModalWrapper">
             <div className="pollModal">
