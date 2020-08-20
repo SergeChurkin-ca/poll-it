@@ -128,7 +128,7 @@ p.countNum {
   width: fit-content;
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .analyticsInfo .usersPollLink {
     font-size: 1.4rem;
     word-wrap: break-word;
@@ -144,3 +144,4 @@ p.countNum {
     font-size: 1.1rem;
   }
 }
+
