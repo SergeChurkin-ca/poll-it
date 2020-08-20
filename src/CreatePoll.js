@@ -71,7 +71,6 @@ class CreatePoll extends Component {
       state.optionB !== ""
     ) {
       const pollObject = {
-
         name: state.name,
         question,
         optionA: state.optionA,
@@ -91,7 +90,7 @@ class CreatePoll extends Component {
       this.setState({
         isLinkShowing: true,
       });
-    } 
+    }
   };
 
   handleReset = (e) => {
@@ -105,23 +104,22 @@ class CreatePoll extends Component {
       errorMessage: "",
       isLinkShowing: false,
     });
-}
-
+  };
 
   render() {
     const state = this.state;
     const key = state.key;
     return (
-      <main>
+      <main className="createPollMain">
         {(() => {
           if (state.isLinkShowing === false) {
             return (
-              <section className="createPoll pageContainer">
+              <section className="createPoll">
                 <div className="copyWrapper">
                   <h2>Make a Poll!</h2>
                   <p>
-                    Use the form below to make your poll! It 's not rocket science.
-                    Or is it ? Only one way to find out - make a poll!
+                    Use the form below to make your poll! It 's not rocket
+                    science. Or is it ? Only one way to find out - make a poll!
                   </p>
                 </div>
                 <form
@@ -132,7 +130,9 @@ class CreatePoll extends Component {
                 >
                   <div className="copyWrapper">
                     <h2>Create Your Poll</h2>
-                    <label htmlFor="name"><span>Name</span>Tell us who you are!</label>
+                    <label htmlFor="name">
+                      <span>Name</span>Tell us who you are!
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -140,7 +140,9 @@ class CreatePoll extends Component {
                       onChange={this.handleChange}
                       required
                     />
-                    <label htmlFor="question"><span>Question</span>What do you wanna know?</label>
+                    <label htmlFor="question">
+                      <span>Question</span>What do you wanna know?
+                    </label>
                     <input
                       type="text"
                       id="question"
@@ -148,7 +150,9 @@ class CreatePoll extends Component {
                       onChange={this.handleChange}
                       required
                     />
-                    <label htmlFor="optionA"><span>Option A</span>What's the first choice?</label>
+                    <label htmlFor="optionA">
+                      <span>Option A</span>What's the first choice?
+                    </label>
                     <input
                       type="text"
                       id="optionA"
@@ -156,7 +160,9 @@ class CreatePoll extends Component {
                       onChange={this.handleChange}
                       required
                     />
-                    <label htmlFor="optionB"><span>Option B</span>Put the second choice here!</label>
+                    <label htmlFor="optionB">
+                      <span>Option B</span>Put the second choice here!
+                    </label>
                     <input
                       type="text"
                       id="optionB"
@@ -166,7 +172,9 @@ class CreatePoll extends Component {
                     />
                     <div className="buttonContainer">
                       <button type="submit">I'm done!</button>
-                      <button type="reset" className="resetButton">Reset</button>
+                      <button type="reset" className="resetButton">
+                        Reset
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -180,7 +188,12 @@ class CreatePoll extends Component {
                   We expected this, so we made a little chart of your poll's
                   stat's just for you! We did this because we care.
                 </p>
-                <Link to={`/polls/${key}/analytics`} className="toAnalyticsLink">Poll up your stats!</Link>
+                <Link
+                  to={`/polls/${key}/analytics`}
+                  className="toAnalyticsLink"
+                >
+                  Poll up your stats!
+                </Link>
               </div>
             );
           }
