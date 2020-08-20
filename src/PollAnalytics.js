@@ -30,47 +30,56 @@ class PollAnalytics extends Component {
     const key = this.props.match.params.pollKey;
     const poll = this.state.poll;
     return (
-      <main className="pageContainer analytics">
-        <h2>Your Poll Analytics!</h2>
-        <p>
-          As poll creater, you can spy on the anonymous votes before anyone
-          else. Whenever you are ready to make your research public, reveal the
-          results with your friends and family with the click of a button!
-        </p>
-        <section className="analyticsInfo">
-          <h2>{poll.name}'s Poll Analytics</h2>
-          <div className="copyWrapper">
-            <p className="pollQuestion">{poll.question}</p>
-            <p> Option A: {poll.optionA}</p>
-            <p> Option B: {poll.optionB}</p>
+      <main className="analytics">
+        <div className="pageContainer">
+          <div className="copyWrapper info">
+            <h2>Your Poll Analytics!</h2>
+            <p>
+              As poll creater, you can spy on the anonymous votes before anyone
+              else. Whenever you are ready to make your research public, reveal
+              the results with your friends and family with the click of a
+              button!
+            </p>
+            <Link className="button" to={`/polls/${key}/view`} tabIndex="0">
+              See your poll!
+            </Link>
           </div>
-          <div className="pollCounters">
-            <div className="count countA">
-              <p className="option">A votes</p>
-              <p className="countNum">{poll.optionACount}</p>
+          <section className="analyticsInfo">
+            <div className="copyWrapper">
+              <h2>{poll.name}'s Poll Analytics</h2>
+              <p className="pollQuestion">{poll.question}</p>
             </div>
-            <div className="count countB">
-              <p className="option">B votes </p>
-              <p className="countNum">{poll.optionBCount}</p>
+            <div className="pollCounters">
+              <div className="count">
+                <p className="option">A votes</p>
+                <p className="countNum">{poll.optionACount}</p>
+              </div>
+              <div className="count">
+                <p className="option">B votes </p>
+                <p className="countNum">{poll.optionBCount}</p>
+              </div>
+              <div className="count">
+                <p className="option">Total</p>
+                <p className="countNum">
+                  {poll.optionACount + poll.optionBCount}
+                </p>
+              </div>
             </div>
-            <div className="count countTotal">
-              <p className="option">Total</p>
-              <p className="countNum">
-                {poll.optionACount + poll.optionBCount}
-              </p>
+            <div className="optionsWrapper">
+              <p> Option A: {poll.optionA}</p>
+              <p> Option B: {poll.optionB}</p>
             </div>
-          </div>
-          <p>Need votes? Share your poll with the link below!</p>
-          <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/view`}</p>
-          <Link className="button" to={`/polls/${key}/view`} tabIndex="0">
-            Share your poll!
-          </Link>
-          <p>Ready to share your results? Send the link below!</p>
-          <Link className="button" to={`/polls/${key}/results`} tabIndex="0">
-            Share your Results!
-          </Link>
-          <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/view`}</p>
-        </section>
+
+            <p>
+              Need <span>votes</span>? Share your poll with the link below!
+            </p>
+            <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/view`}</p>
+            <p>
+              Ready to share your <span>results</span>? Send this link.
+            </p>
+            <p className="usersPollLink">{`https://spring2anonymouspoll.github.io/polls/${key}/results`}</p>
+          </section>
+        </div>
       </main>
     );
   }

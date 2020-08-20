@@ -480,7 +480,6 @@ main:hover .toCreatePoll {
 
 .createPollForm {
   background: white;
-  border: 3px solid #2d0c30;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(45, 12, 48, 0.3);
   display: flex;
@@ -624,65 +623,84 @@ input:focus-within {
 }
 
 /* === POLL ANALYTICS COMPONENT === */
-
 .analytics {
-  background: white;
-  color: #2d0c30;
-  font-size: 2rem;
-}
-
-.analytics h2 {
-  padding: 50px 0 25px 0;
-}
-
-.analyticsInfo {
-  background: #f5f5f5;
-  border-radius: 20px;
-  margin: 30px auto;
-  padding: 25px 50px;
-  width: 90%;
-  border: 7px solid #2d0c30;
-  border-radius: 15px;
-}
-
-.analyticsInfo .copyWrapper {
-  width: 75%;
-}
-
-.analyticsInfo h2,
-.analyticsInfo p {
-  width: 100%;
-}
-
-.analyticsInfo h2 {
-  width: 25%;
+  height: 100vh;
 }
 
 .analytics p {
   font-family: "Barlow", sans-serif;
-  margin: 10px;
+  margin: 10px 0;
   line-height: 1.6;
   font-size: calc(15px + (25 - 15) * ((100vw - 300px) / (1600 - 300)));
 }
 
-.pollQuestion {
-  font-size: 3.5rem;
+.analytics .pageContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  margin: auto;
+  max-width: 1400px;
+  padding: 50px 0;
+  width: 90%;
+}
+
+.analytics .copyWrapper {
+  width: 27%;
+  padding: 100px 0;
+}
+
+.analytics .copyWrapper p {
+  text-align: justify;
+}
+
+.analyticsInfo {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(45, 12, 48, 0.3);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  position: relative;
+  margin: 30px 0;
+  padding: 50px;
+  width: 68%;
+}
+
+.analyticsInfo span {
+  font-family: "Montserrat", sans-serif;
+}
+
+.analyticsInfo .copyWrapper {
+  width: 40%;
+}
+
+.analyticsInfo .copyWrapper,
+.analyticsInfo .optopmsWrapper {
+  padding: 10px 0;
+}
+
+.analyticsInfo .optionsWrapper {
+  width: 100%;
 }
 
 .pollCounters {
   display: flex;
   font-family: "Montserrat", sans-serif;
   justify-content: space-around;
-  margin: auto;
-  flex-wrap: wrap;
   justify-content: center;
+  width: 57%;
+  max-height: 150px;
+  position: absolute;
+  top: 40px;
+  right: 10px;
 }
 
 .count {
-  border-radius: 5px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  border: 2px solid #2d0c30;
   flex-basis: 32%;
   text-align: center;
-  min-width: 100px;
   margin: 5px 5px;
 }
 
@@ -691,24 +709,20 @@ input:focus-within {
   width: auto;
 }
 
-.countA {
-  background: #eae100;
-  color: #2d0c30;
-}
-
-.countB {
-  background: #2d0c30;
-  color: #f5f5f5;
-}
-
-.countTotal {
-  background: #e27a05;
-  color: #f5f5f5;
-}
-
 p.countNum {
   font-family: "Montserrat", sans-serif;
   font-size: calc(25px + (70 - 25) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.usersPollLink {
+  background: #f5f5f5;
+  border: 2px solid #2d0c30;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.analytics .analyticsInfo .usersPollLink {
+  font-size: 1.6rem;
 }
 
 /* === VIEW POLL COMPONENT === */
@@ -877,11 +891,31 @@ p.countNum {
 }
 
 /* === ANALYTICS MEDIA QUERIES ===*/
+@media all and (max-width: 1000px) {
+  .analytics {
+    height: auto;
+  }
+
+  .analytics .copyWrapper.info,
+  .analyticsInfo {
+    width: 100%;
+  }
+}
+
+.analytics .copyWrapper.info {
+  padding: 30px 0;
+}
+
 @media (max-width: 600px) {
+  .pollCounters {
+    position: static;
+    width: 100%;
+  }
   .analyticsInfo .usersPollLink {
     font-size: 1.4rem;
     word-wrap: break-word;
   }
+
   .analyticsInfo {
     padding: 10px;
     width: 98%;
