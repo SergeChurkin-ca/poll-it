@@ -9,21 +9,17 @@ class CreatePoll extends Component {
   render() {
     return (
       <main className="homePage">
-        <div className="styleBlock block1">
+        <div className="styleBlock block0">
           <div className="copyContainer">
             <div className="copyWrapper">
-              <h2>Finally Settle It!</h2>
-              <p>
-                Whether its money, the last doughnut or your pride at stake, you
-                can always settle it with a poll!
-              </p>
+              <h1>Create Polls & Share with Your Friends</h1>
             </div>
           </div>
         </div>
-        <div className="styleBlock block2">
+        <div className="styleBlock block1">
           <div className="copyContainer">
             <div className="copyWrapper">
-              <h2>Use Anywhere</h2>
+              <h2>1. Use Anywhere</h2>
               <p>
                 Use your customized poll to poll your team in slack, plan your
                 family picnic on facebook, or even settle a hot debate in
@@ -33,15 +29,26 @@ class CreatePoll extends Component {
             </div>
           </div>
         </div>
-        <div className="styleBlock block3">
+        <div className="styleBlock block2">
           <div className="copyContainer">
             <div className="copyWrapper">
-              <h2>Share With Friends</h2>
+              <h2>2. Share With Friends</h2>
               <p>
                 Share the link to your poll with friends, family members, and
                 peers! Post it on your wall, or on an instagram story. There is
                 literally no place on the internet for your friends to hide from
                 your poll!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="styleBlock block3">
+          <div className="copyContainer">
+            <div className="copyWrapper">
+              <h2>3. Settle debates!</h2>
+              <p>
+                Whether its money, the last doughnut or your pride at stake, you
+                can always settle it with a poll!
               </p>
             </div>
           </div>

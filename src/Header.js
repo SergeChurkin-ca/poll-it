@@ -6,7 +6,7 @@ const Header = () => {
     <header>
       <div className="header">
         <Link to="/anonymousVotingBooth">
-          <h1>Poll it Together</h1>
+          <p class="logo">Poll it Together</p>
         </Link>
         <Link to="/createpoll">Create a Poll</Link>
       </div>

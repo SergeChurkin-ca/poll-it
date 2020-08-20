@@ -280,25 +280,13 @@ body {
   font-size: 2rem;
 }
 
-.footer {
-  width: 100%;
-  text-align: center;
-  /* position: fixed; */
-  padding: 30px 0;
-  background-color: #2d0c30;
-  color: whitesmoke;
-  /* bottom: 0; */
-}
-
-/* --- Typography --- */
+/* --- Global Typography --- */
 
 h1,
 h2,
 h3 {
   font-family: "Montserrat", sans-serif;
-  /* padding: 20px 0; */
   width: 80%;
-  font-family: "Barlow", sans-serif;
 }
 
 p,
@@ -321,12 +309,13 @@ a {
 button,
 .button {
   background: #e27a05;
-  border: 2px solid transparent;
+  border: 1px solid #2d0c30;
   border-radius: 5px;
   box-shadow: 0 0 7px rgba(45, 12, 48, 0.3.5);
-  color: whitesmoke;
+  color: #f5f5f5;
   cursor: pointer;
   display: inline-block;
+  font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   margin: 15px 0;
   padding: 10px 20px;
@@ -342,8 +331,7 @@ button:focus-within,
 .button:hover,
 .button:focus,
 .button:focus-within {
-  border: 4px solid #2d0c30;
-  outline: none;
+  border: 2px solid #2d0c30;
 }
 
 a:hover,
@@ -354,7 +342,7 @@ a:focus {
 /* --- Layout ---*/
 
 .pageContainer,
-.homePage .copyContainer {
+.copyContainer {
   margin: 0 auto;
   max-width: 1100px;
   width: 90%;
@@ -364,11 +352,7 @@ a:focus {
 
 header {
   background: #e27a05;
-  color: whitesmoke;
-}
-
-header a {
-  color: whitesmoke;
+  color: #f5f5f5;
 }
 
 .header {
@@ -376,26 +360,42 @@ header a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 0;
   max-width: 1400px;
   margin: 0 auto;
   width: 90%;
 }
 
-.header h1 {
-  margin: 0;
+.header .logo,
+.header a {
+  color: #f5f5f5;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header a:hover,
+.header a:focus {
+  transform: scale(1.02);
+}
+
+.header .logo {
+  font-size: 5rem;
+  padding: 15px 0;
+}
+
+.header .copyWrapper p {
+  width: 75%;
+  margin-bottom: 1.5em;
 }
 
 /* === HOME PAGE COMPONENT === */
 
-.homePage {
-  background: #eae100;
-  display: block;
-  height: auto;
+.homePage h1 {
+  font-size: 4.5rem;
 }
 
 .homePage,
 .homePage h2 {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 .homePage h3 {
@@ -403,7 +403,7 @@ header a {
 }
 
 .homePage .copyWrapper {
-  width: 75%;
+  width: 70%;
 }
 
 .homePage .right {
@@ -414,7 +414,7 @@ header a {
 .styleBlock {
   align-items: center;
   display: flex;
-  height: 28.3333vh;
+  height: 25vh;
   min-height: 150px;
   padding: 1em 0;
 }
@@ -426,11 +426,6 @@ header a {
 .styleBlock.block2 {
   background: #2d0c30;
   color: #f5f5f5;
-}
-
-.copyWrapper p {
-  width: 75%;
-  margin-bottom: 1.5em;
 }
 
 .styleBlock.block3 {
@@ -445,11 +440,11 @@ header a {
   border-top-right-radius: 0;
   border-right: none;
   box-shadow: 0 0 15px rgba(45, 12, 48, 0.4);
-  padding: 1em;
+  padding: 1.5em;
   position: fixed;
   /* slide in effect of side sticker part1*/
   right: -20em;
-  top: 30%;
+  top: 36%;
   width: 33%;
 }
 
@@ -466,7 +461,7 @@ header a {
 }
 
 .analyticsInfo {
-  background: whitesmoke;
+  background: #f5f5f5;
   border-radius: 20px;
   margin: 30px auto;
   padding: 25px 50px;
@@ -555,7 +550,7 @@ main:hover .toCreatePoll {
 /* === CREATE POLL COMPONENT === */
 
 .createPollMain {
-  background: whitesmoke;
+  background: #f5f5f5;
   position: relative;
 }
 
@@ -699,7 +694,7 @@ input:focus-within {
 }
 
 .pollModal {
-  background: whitesmoke;
+  background: #f5f5f5;
   border: 7px solid #2d0c30;
   border-radius: 15px;
   padding: 30px;
@@ -728,7 +723,7 @@ input:focus-within {
 }
 
 .analyticsInfo {
-  background: whitesmoke;
+  background: #f5f5f5;
   border-radius: 20px;
   margin: 30px auto;
   padding: 25px 50px;
@@ -874,7 +869,7 @@ p.countNum {
 }
 
 .userMessage {
-  background: whitesmoke;
+  background: #f5f5f5;
   width: 50%;
   padding: 15px;
   margin: 15px auto;
@@ -882,6 +877,15 @@ p.countNum {
   border-radius: 5px;
   text-align: center;
   font-size: 2.5rem;
+}
+
+/* === FOOTER COMPONENT === */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  background-color: #2d0c30;
+  color: #f5f5f5;
 }
 
 /* === DISPLAY STYLES === */
@@ -892,8 +896,6 @@ p.countNum {
 .show {
   display: block;
 }
-
-/* ============================================ *
 
 /* === MEDIA STYLES === */
 
@@ -924,7 +926,6 @@ p.countNum {
 }
 
 /* --- Analytics --- */
-
 @media (max-width: 600px) {
   .analyticsInfo .usersPollLink {
     font-size: 1.4rem;

@@ -1,3 +1,5 @@
+// === VIEW POLL ===
+
 // Imports ----- +
 import React, { Component } from "react";
 import firebase from "./firebase";
@@ -119,8 +121,6 @@ class ViewPoll extends Component {
   // Render JSX Method ----- +
   render() {
     const poll = this.state.poll;
-    console.log(this.state.isPollAnswered);
-    console.log(this.state.isPollStored);
     return (
       <main className="viewPoll">
         <section
@@ -173,14 +173,16 @@ class ViewPoll extends Component {
         </section>
         <div className={this.state.isPollAnswered === true ? "show" : "hide"}>
           <p className="userMessage">
-            Thank you for your submission!{" "}
-            <span role="img" aria-labelledby="wink"></span>
+            Thank you for your submission!
+            <span role="img" aria-labelledby="sunglasses emoji">
+              😎
+            </span>
           </p>
         </div>
         <div className={this.state.isPollStored === true ? "show" : "hide"}>
           <p className="userMessage">
-            Nice try. You can only vote once per poll{" "}
-            <span role="img" aria-labelledby="wink">
+            Nice try. You can only vote once per poll
+            <span role="img" aria-labelledby="wink emoji">
               😉
             </span>
           </p>
