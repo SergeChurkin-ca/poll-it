@@ -334,7 +334,7 @@ header a {
     opacity: 0;
 }
 
-.viewPollForm input:checked  label {
+.optionNames input:checked  label {
     background: #e27a05;
 }
 
