@@ -298,7 +298,7 @@ header a {
     align-items: flex-start;
     display: flex;
     justify-content: space-between;
-    height: 80vh;
+    height: 100vh;
     padding-top: 10px;
     width: 90%;
     margin: 0 auto;
@@ -482,7 +482,7 @@ input:focus-within {
 
 /* --- Landscape phone to portrait tablet --- */
 
-@media (max-width: 780px) {
+@media (max-width: 800px) {
     header h1 {
         font-size: 35px;
     }
