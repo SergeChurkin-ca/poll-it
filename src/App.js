@@ -13,10 +13,10 @@ import ViewPoll from "./ViewPoll";
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Fragment>
           <Header />
-          <Route exact path="/anonymousVotingBooth" component={HomePage} />
+          <Route exact path="/" component={HomePage} />
           <Route exact path="/createpoll" component={CreatePoll} />
           <Route path="/polls/:pollKey/analytics" component={PollAnalytics} />
           <Route path="/polls/:pollKey/view" component={ViewPoll} />
