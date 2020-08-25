@@ -76,14 +76,14 @@ class PollAnalytics extends Component {
             <p
               className="usersPollLink"
               tabIndex="0"
-            >{`https://spring2anonymouspoll.github.io/anonymousVotingBooth/polls/${key}/view`}</p>
+            >{`https://pollTogether.github.io/poll-it/polls/${key}/view`}</p>
             <p>
               Ready to share your <span>results</span>? Send this link.
             </p>
             <p
               className="usersPollLink"
               tabIndex="0"
-            >{`https://spring2anonymouspoll.github.io/anonymousVotingBooth/polls/${key}/results`}</p>
+            >{`https://pollTogether.github.io/poll-it/polls/${key}/results`}</p>
           </section>
         </div>
       </main>
